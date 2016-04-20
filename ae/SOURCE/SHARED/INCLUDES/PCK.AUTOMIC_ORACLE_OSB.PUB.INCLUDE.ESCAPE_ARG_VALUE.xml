@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ESCAPE_ARG_VALUE">
+<HEADER state="1">
+<Title>escape argument values</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[
+! We escape double-quotes for java Strings
+: SET &UC4RB_EHUD_ESC_VALUE# = STR_TRIM("&TEMP_OPTION_VALUE#")
+: SET &UC4RB_EHUD_ESC_VALUE# = STR_SUB(&UC4RB_EHUD_ESC_VALUE#, """", "\""")
+]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[It escapes the input parameters and wrap the parameter surrounded by quotes(").]]></DOC>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

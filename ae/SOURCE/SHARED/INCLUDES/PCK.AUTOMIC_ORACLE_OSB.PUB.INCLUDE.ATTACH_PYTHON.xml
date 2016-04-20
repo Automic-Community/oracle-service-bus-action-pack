@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_ORACLE_OSB.PRV.INCLUDE.ATTACH_PYTHON">
+<JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ATTACH_PYTHON">
 <HEADER state="1">
 <Title>Attach python file</Title>
 <ArchiveKey1/>
