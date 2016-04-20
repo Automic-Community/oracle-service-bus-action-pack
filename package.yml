@@ -1,0 +1,14 @@
+# Package Build Configuration 
+name: PCK.AUTOMIC_ORACLE_OSB
+
+source: ae
+  
+# binary object resource mapping will be defined here
+binaries:
+  
+  - object: RESOURCES/LIBS/PCK.AUTOMIC_ORACLE_OSB.PRV.STORE
+    resources: 
+      - name: example
+        type: TEXT
+        path: tools/osbtool/resources/pythonscripts/pck_oracle_osb_example.py
+        version: 1.0.0
