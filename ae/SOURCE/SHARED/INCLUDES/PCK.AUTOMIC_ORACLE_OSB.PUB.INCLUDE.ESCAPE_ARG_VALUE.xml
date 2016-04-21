@@ -9,8 +9,8 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[
 ! We escape double-quotes for java Strings
-: SET &UC4RB_EHUD_ESC_VALUE# = STR_TRIM("&TEMP_OPTION_VALUE#")
-: SET &UC4RB_EHUD_ESC_VALUE# = STR_SUB(&UC4RB_EHUD_ESC_VALUE#, """", "\""")
+: SET &UC4RB_OSB_ESC_VALUE# = STR_TRIM("&TEMP_OPTION_VALUE#")
+: SET &UC4RB_OSB_ESC_VALUE# = STR_SUB(&UC4RB_OSB_ESC_VALUE#, """", "\""")
 ]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
