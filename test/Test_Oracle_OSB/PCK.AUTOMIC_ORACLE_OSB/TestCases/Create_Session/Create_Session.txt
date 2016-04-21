@@ -1,0 +1,81 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_session
+Default Tags
+Test Template     Create Session Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    DomainHome        Hostname           Username           Password           Port           SessionName
+Create Session with Valid Inputs
+                      OK        ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Testing
+
+Create Session with already existing Session Name
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${EMPTY}       Testing
+
+Assertion With Non-Existing Domain Home
+                      NOK       Invalid           ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assertion With Non-Existing Hostname
+                      NOK       ${Domain_Home}    Invalid            ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assertion With Non-Existing Username
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    Invalid            ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assertion With Non-Existing Password
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    Invalid            ${OSB_Port}    ${Session_Name}
+
+Assertion With Invalid Port
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    3              ${Session_Name}
+
+Assert Domain Home As a Mandatory Field
+                      OTHER     ${EMPTY}          ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assert Hostname As a Mandatory Field
+                      OTHER     ${Domain_Home}    ${EMPTY}           ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assert Username As a Mandatory Field
+                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${EMPTY}           ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+
+Assert Password As a Mandatory Field
+                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${EMPTY}           ${OSB_Port}    ${Session_Name}
+
+Assert Session Name As a Mandatory Field
+                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE SESSION"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Session Template
+    [Arguments]    ${OK_NOK}    ${DomainHome}    ${Hostname}    ${Username}    ${Password}    ${Port}
+    ...    ${SessionName}
+    [Documentation]    This test will create a session on OSB.
+    ...    -Precondition: To run this test suite OSB credentials should be known to user. To run the test cases on UNIX change the values of Hostname and other fields accordingly.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
+    ...    -${DomainHome}: This field specifies path to Domain Home.
+    ...    -${Hostname}: This field specifies hostname of OSB.
+    ...    -${Username}: This field specifies username for OSB.
+    ...    -${Password}: This field specifies the password for provided username.
+    ...    -${Port}: This field specifies port on which OSB is running.
+    ...    -${SessionName}: This field specifies name of the session you want to create.
+    Generate String
+    Action Create    ${_CREATE_SESSION_ACTION}
+    Connect to OSB
+    Run Keyword If    '${SessionName}' == 'valid'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}    ELSE    Action Set
+    ...    &UC4RB_OSB_SESSION_NAME#    ${SessionName}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure    ELSE
+    ...    Assert Mandatory
+
+Teardown
+    Log    *******End Test "CREATE SESSION"*******
