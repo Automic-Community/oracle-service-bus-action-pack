@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST">
+<HEADER state="1">
+<Title>Set OSB environment</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[! printing the command formed
+: PRINT "EXECUTING CMD : &UC4RB_RUN_CMD#"
+
+: SWITCH &$PLATFORM#
+:        CASE "WINDOWS"
+                  "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
+                  &UC4RB_RUN_CMD#
+:        CASE "UNIX"
+                  if [ -z != $WEBLOGIC_HOME ]
+                    then
+                          . $WEBLOGIC_HOME/server/bin/setWLSEnv.sh
+                          error=$?
+                          export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
+                          &UC4RB_RUN_CMD#
+                    else
+                           echo "WEBLOGIC_HOME is not set"
+                           error=1
+                    fi
+:        OTHER
+: ENDSWITCH]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

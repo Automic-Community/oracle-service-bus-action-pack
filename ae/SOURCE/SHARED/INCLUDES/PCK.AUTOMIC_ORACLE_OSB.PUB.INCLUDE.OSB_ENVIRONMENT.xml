@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT">
 <HEADER state="1">
-<Title>Set OSB environment</Title>
+<Title>Echo enable/disable swtich statement</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: SWITCH &$PLATFORM#
-:        CASE "WINDOWS"
-                   "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
-:        CASE "UNIX"
-if [ -z != $WEBLOGIC_HOME ]
-then
-  . $WEBLOGIC_HOME/bin/setWLSEnv.sh
-    error=$?
-    export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
-else
- echo "WEBLOGIC_HOME is not set"
- error=1
-fi
-
-:        OTHER
-: ENDSWITCH]]></MSCRI>
+<MSCRI><![CDATA[:SWITCH &$PLATFORM#
+:CASE "WINDOWS"
+@echo off
+ set ERROR=0
+:CASE "UNIX"
+ error=0
+:OTHER
+:ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
