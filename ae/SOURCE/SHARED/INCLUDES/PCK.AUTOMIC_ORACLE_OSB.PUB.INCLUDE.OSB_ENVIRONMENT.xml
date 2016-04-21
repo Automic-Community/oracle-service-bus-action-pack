@@ -9,8 +9,11 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[: SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
-                   "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
+. %WEBLOGIC_HOME%\bin\setWLSEnv.cmd
+
 :        CASE "UNIX"
+export WEBLOGIC_HOME=/oracle/fmwhome/wlserver_10.3/server
+export OSB_HOME=/oracle/fmwhome/Oracle_OSB1
 if [ -z != $WEBLOGIC_HOME ]
 then
   . $WEBLOGIC_HOME/bin/setWLSEnv.sh

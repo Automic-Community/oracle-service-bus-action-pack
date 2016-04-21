@@ -58,14 +58,8 @@
 <UC4RB_OSB_HOST_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOST_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASSWORD#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PORTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PORT#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">7001</UC4RB_OSB_PORTs.00>
+<UC4RB_OSB_PROTOCOLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PROTOCOL#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">t3</UC4RB_OSB_PROTOCOLs.00>
 <UC4RB_OSB_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_USERNAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<UC4RB_OSB_DOMAIN_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_DOMAIN_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -131,14 +125,8 @@
 <UC4RB_OSB_HOST_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOST_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASSWORD#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PORTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PORT#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">7001</UC4RB_OSB_PORTs.00>
+<UC4RB_OSB_PROTOCOLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PROTOCOL#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">t3</UC4RB_OSB_PROTOCOLs.00>
 <UC4RB_OSB_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_USERNAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<UC4RB_OSB_DOMAIN_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_DOMAIN_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -190,14 +178,8 @@
 <UC4RB_OSB_HOST_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOST_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PASSWORDs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASSWORD#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OSB_PORTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PORT#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">7001</UC4RB_OSB_PORTs.00>
+<UC4RB_OSB_PROTOCOLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PROTOCOL#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">t3</UC4RB_OSB_PROTOCOLs.00>
 <UC4RB_OSB_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_USERNAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-</PRPTBOX>
-</PROMPTSET>
-</node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME">
-<UC4RB_OSB_DOMAIN_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_DOMAIN_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -277,11 +259,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS" prptmode="1"/>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.DOMAIN_HOME" prptmode="1"/>
-</PROMPTSET>
-</node>
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.ACTIVATE_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.ACTIVATE_SESSION" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.ACTIVATE_SESSION" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.ACTIVATE_SESSION" prptmode="1">
@@ -320,7 +297,43 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.ACTIVATE_SESSION
+
+= General description =
+This action is used to activate a session in Oracle Service Bus. User could also provide a textual description to session activation task. 
+
+Any changes done in the session would be applied to domain to which the session belongs.
+
+= Failure Conditions =
+* Session with specified name does not exist or cannot be activated.
+
+= Inputs =
+* Host name 		: Specify name or IP address of OSB.
+* Username 		: Specify username which will be used for OSB host. E.g. username
+* Password		: Specify password for giver username.
+* Port			: Specify port number of the OSB host. E.g. 7001
+* Protocol 		: Specify protocol you want to use for connection. Either t3, https or http
+* Session name		: Specify name of the session you want to activate. E.g. mysession
+* Session Description 	: Provide description to this session.
+* Overwrite Agent	: Overwrites the default agent
+* Overwrite Login 	: Overwrites the default login
+
+= Behaviour =
+(none)
+
+=Return Value=
+(none)
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is 1 in case of failure.
+
+= Logging =
+Logs will be displayed in the AE report.
+
+= Example =
+(none)]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>

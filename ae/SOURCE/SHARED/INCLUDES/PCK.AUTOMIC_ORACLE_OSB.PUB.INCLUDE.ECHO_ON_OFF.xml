@@ -10,9 +10,9 @@
 <MSCRI><![CDATA[:SWITCH &$PLATFORM#
 :CASE "WINDOWS"
 @echo off
- set ERROR=0
+set ERROR=0
 :CASE "UNIX"
- error=0
+error=0
 :OTHER
 :ENDSWITCH]]></MSCRI>
 </SCRIPT>
