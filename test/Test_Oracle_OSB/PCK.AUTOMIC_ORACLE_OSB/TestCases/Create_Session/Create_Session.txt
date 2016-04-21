@@ -14,10 +14,10 @@ Resource          ../../Resources/actions.txt
 
 *** Test Cases ***    OK_NOK    DomainHome        Hostname           Username           Password           Port           SessionName
 Create Session with Valid Inputs
-                      OK        ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Testing
+                      OK        ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 Create Session with already existing Session Name
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${EMPTY}       Testing
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 Assertion With Non-Existing Domain Home
                       NOK       Invalid           ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
@@ -33,6 +33,9 @@ Assertion With Non-Existing Password
 
 Assertion With Invalid Port
                       NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    3              ${Session_Name}
+
+Assertion With Invalid Session Name
+                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Invalid
 
 Assert Domain Home As a Mandatory Field
                       OTHER     ${EMPTY}          ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
@@ -70,7 +73,7 @@ Create Session Template
     Generate String
     Action Create    ${_CREATE_SESSION_ACTION}
     Connect to OSB
-    Run Keyword If    '${SessionName}' == 'valid'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}    ELSE    Action Set
+    Run Keyword If    '${SessionName}' == 'Invalid'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_SESSION_NAME#    ${SessionName}
     Set Overwrite Agent
     Action Execute
