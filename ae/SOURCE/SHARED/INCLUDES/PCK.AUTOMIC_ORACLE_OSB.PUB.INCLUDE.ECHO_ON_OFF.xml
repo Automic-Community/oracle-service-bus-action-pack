@@ -7,9 +7,14 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:IF &$PLATFORM# EQ "WINDOWS"
-    @echo off
-:ENDIF]]></MSCRI>
+<MSCRI><![CDATA[:SWITCH &$PLATFORM#
+:CASE "WINDOWS"
+@echo off
+ set ERROR=0
+:CASE "UNIX"
+ error=0
+:OTHER
+:ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
