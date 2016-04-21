@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.SET_EXEC_ENVIRONMENT">
 <HEADER state="1">
-<Title>Set the execution environment</Title>
+<Title/>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:SWITCH &$PLATFORM#
-:  CASE "WINDOWS"
-     call "&UC4RB_OSB_DOMAIN_HOME#\user_projects\domains\dev_soasuite\bin\setDomainEnv.cmd"
-:  CASE "UNIX"
-     . "&UC4RB_OSB_DOMAIN_HOME#/user_projects/domains/dev_soasuite/bin/setDomainEnv.sh"
-:  OTHER
-:ENDSWITCH]]></MSCRI>
+<MSCRI><![CDATA[: SWITCH &$PLATFORM#
+:        CASE "WINDOWS"
+                   "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
+:        CASE "UNIX"
+                    cd $WEBLOGIC_HOME
+                    . ./setWLSEnv.sh
+                    export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
+:        OTHER
+: ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

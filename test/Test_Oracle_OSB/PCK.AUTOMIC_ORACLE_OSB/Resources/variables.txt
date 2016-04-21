@@ -1,0 +1,12 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Common Promptset Fields --------------------------------------------------------------------------------------
+${OSB_Protocol}    t3
+${OSB_Hostname}    192.168.47.143
+${OSB_Username}    weblogic
+${OSB_Password}    Ulan123!
+${OSB_Port}       7001
+#---- Common Promptset Fields --------------------------------------------------------------------------------------
+${Session_Name}    session1
