@@ -5,15 +5,12 @@ from com.bea.wli.config import Ref
 
 try:
 		username = sys.argv[1]
-		password = sys.argv[4]
+		password = sys.argv[5]
 		hostname = sys.argv[2]
-		sessionName = sys.argv[3]
+		sessionName = sys.argv[4]
+		port = sys.argv[3]
 		
-		if len(sys.argv) == 6:
-				connect(username, password, 't3://'+ hostname + ':' + sys.argv[5])
-		else:
-				connect(username, password, 't3://'+ hostname)
-		
+		connect(username, password, 't3://'+ hostname + ':' + port)
 		domainRuntime()
 
 		# obtain session management mbean to create a session.
