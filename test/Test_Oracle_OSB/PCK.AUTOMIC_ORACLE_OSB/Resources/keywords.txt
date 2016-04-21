@@ -97,12 +97,11 @@ Generate String
     Set Global Variable    ${Time}
 
 Connect to OSB
-    Run Keyword If    '${DomainHome}' == 'Invalid'    Action Set    &UC4RB_OSB_DOMAIN_HOME#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_OSB_DOMAIN_HOME#    ${DomainHome}
+    Action Set    &UC4RB_OSB_PROTOCOL#    ${Protocol}
     Run Keyword If    '${Hostname}' == 'Invalid'    Action Set    &UC4RB_OSB_HOSTNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_HOSTNAME#    ${Hostname}
     Run Keyword If    '${Username}' == 'Invalid'    Action Set    &UC4RB_OSB_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_VSP_USERNAME#    ${Username}
+    ...    &UC4RB_OSB_USERNAME#    ${Username}
     Run Keyword If    '${Password}' == 'Invalid'    Action Set    &UC4RB_OSB_PASSWORD#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_VSP_PASSWORD#    ${Password}
+    ...    &UC4RB_OSB_PASSWORD#    ${Password}
     Action Set    &UC4RB_OSB_PORT#    ${Port}

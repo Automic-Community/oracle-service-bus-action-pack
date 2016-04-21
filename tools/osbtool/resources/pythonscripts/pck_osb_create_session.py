@@ -5,12 +5,11 @@ from com.bea.wli.config import Ref
 
 try:
 		username = sys.argv[1]
-		password = sys.argv[5]
-		hostname = sys.argv[2]
-		sessionName = sys.argv[4]
-		port = sys.argv[3]
+		password = sys.argv[4]
+		url = sys.argv[2]
+		sessionName = sys.argv[3]
 		
-		connect(username, password, 't3://'+ hostname + ':' + port)
+		connect(username, password, url)
 		domainRuntime()
 
 		# obtain session management mbean to create a session.
@@ -18,6 +17,7 @@ try:
 		
 		# create a session
 		sessionMBean.createSession(sessionName)
+		print "Session with the name %s created successfully" %sessionName
 except:
 		print "Unexpected error: ", sys.exc_info()[0]
 		dumpStack()

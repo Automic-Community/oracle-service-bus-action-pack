@@ -7,11 +7,9 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:SWITCH &$PLATFORM#
-:CASE "WINDOWS"
-@echo off
-:OTHER
-:ENDSWITCH]]></MSCRI>
+<MSCRI><![CDATA[:IF &$PLATFORM# EQ "WINDOWS"
+    @echo off
+:ENDIF]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

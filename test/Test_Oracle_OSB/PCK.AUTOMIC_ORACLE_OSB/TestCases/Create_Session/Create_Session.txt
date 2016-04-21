@@ -12,45 +12,45 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    DomainHome        Hostname           Username           Password           Port           SessionName
+*** Test Cases ***    OK_NOK    Protocol           Hostname           Username           Password           Port           SessionName
 Create Session with Valid Inputs
-                      OK        ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+                      OK        ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 Create Session with already existing Session Name
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion With Non-Existing Domain Home
-                      NOK       Invalid           ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+Assertion with Non-Existing Domain Home
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion With Non-Existing Hostname
-                      NOK       ${Domain_Home}    Invalid            ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+Assertion with Invalid Protocol
+                      NOK       https              ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion With Non-Existing Username
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    Invalid            ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+Assertion with Non-Existing Hostname
+                      NOK       ${OSB_Protocol}    Invalid            ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion With Non-Existing Password
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    Invalid            ${OSB_Port}    ${Session_Name}
+Assertion with Non-Existing Username
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    Invalid            ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion With Invalid Port
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    3              ${Session_Name}
+Assertion with Non-Existing Password
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    Invalid            ${OSB_Port}    ${Session_Name}
 
-Assertion With Invalid Session Name
-                      NOK       ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Invalid
+Assertion with Invalid Port
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    3              ${Session_Name}
 
-Assert Domain Home As a Mandatory Field
-                      OTHER     ${EMPTY}          ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+Assertion with Invalid Session Name
+                      NOK       ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Invalid
 
 Assert Hostname As a Mandatory Field
-                      OTHER     ${Domain_Home}    ${EMPTY}           ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+                      OTHER     ${OSB_Protocol}    ${EMPTY}           ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 Assert Username As a Mandatory Field
-                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${EMPTY}           ${OSB_Password}    ${OSB_Port}    ${Session_Name}
+                      OTHER     ${OSB_Protocol}    ${OSB_Hostname}    ${EMPTY}           ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 Assert Password As a Mandatory Field
-                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${EMPTY}           ${OSB_Port}    ${Session_Name}
+                      OTHER     ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${EMPTY}           ${OSB_Port}    ${Session_Name}
 
 Assert Session Name As a Mandatory Field
-                      OTHER     ${Domain_Home}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${EMPTY}
+                      OTHER     ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${EMPTY}
 
 *** Keywords ***
 Startup
@@ -59,12 +59,12 @@ Startup
     Connect AE
 
 Create Session Template
-    [Arguments]    ${OK_NOK}    ${DomainHome}    ${Hostname}    ${Username}    ${Password}    ${Port}
+    [Arguments]    ${OK_NOK}    ${Protocol}    ${Hostname}    ${Username}    ${Password}    ${Port}
     ...    ${SessionName}
     [Documentation]    This test will create a session on OSB.
     ...    -Precondition: To run this test suite OSB credentials should be known to user. To run the test cases on UNIX change the values of Hostname and other fields accordingly.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
-    ...    -${DomainHome}: This field specifies path to Domain Home.
+    ...    -${Protocol}: This field specifies protocol over which you want to connect to OSB.
     ...    -${Hostname}: This field specifies hostname of OSB.
     ...    -${Username}: This field specifies username for OSB.
     ...    -${Password}: This field specifies the password for provided username.
