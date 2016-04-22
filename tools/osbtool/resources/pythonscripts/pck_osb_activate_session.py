@@ -22,7 +22,7 @@ try:
 			sessionMBean.activateSession(sessionName, None)
 		else:
 			sessionMBean.activateSession(sessionName, sessionDescription)
-except java.lang.NullPointerException:
-		raise "ERROR: Cannot find session " + sys.argv[4], sys.exc_info()[0]
+
 except:
 		raise "ERROR: Please check Input parameters.", sys.exc_info()[0]
+		

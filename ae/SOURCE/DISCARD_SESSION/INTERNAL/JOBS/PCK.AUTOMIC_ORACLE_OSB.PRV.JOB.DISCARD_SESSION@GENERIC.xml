@@ -97,7 +97,9 @@
 ]]></PSCRI>
 </PRE_SCRIPT>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ECHO_ON_OFF
+<MSCRI><![CDATA[: DEFINE &STRING_ARR#, string, 100
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
 
 !-------------------------------------Logging input parameters-------------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.PARAM_VALIDATION
@@ -126,31 +128,15 @@
 ! printing the command formed
 : PRINT &UC4RB_DISCARD_SESSION_CMD#
 
-! Setting execution environment
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
-
-! Invoking java binary
-: SWITCH &$PLATFORM#
-:        CASE "WINDOWS"
-                  IF %ERRORLEVEL% EQU 0 (
-                      &UC4RB_DISCARD_SESSION_CMD#
-                      ERROR=%ERRORLEVEL%
-                  )
-:        CASE "UNIX"
-                  if [ $error -eq 0 ]
-                  then
-                      &UC4RB_DISCARD_SESSION_CMD#
-                      error=$?
-                  fi
-
-:        OTHER
-: ENDSWITCH
+! Setting WLST environment and executing activate session command
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST &UC4RB_RUN_CMD# = &UC4RB_DISCARD_SESSION_CMD#
 
 ! Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** DISCARD SESSION ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** DISCARD SESSION ACTION FAILED ********"
+: SET &UC4RB_LOGGING_INFO# = "******** DISCARD SESSION ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** DISCARD SESSION ACTION FAILED ********"
 
-:INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS]]></MSCRI>
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>

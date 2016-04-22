@@ -12,19 +12,27 @@
 
 : SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
-                  "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
-                  &UC4RB_RUN_CMD#
+                  call "%WEBLOGIC_HOME%\server\bin\setWLSEnv.cmd"
+                  IF %ERRORLEVEL% EQU 0 (
+                      set CLASSPATH=%CLASSPATH%:%OSB_HOME%\lib\sb-kernel-api.jar:%OSB_HOME%\modules\com.bea.common.configfwk_1.7.0.0.jar:%OSB_HOME%\lib\sb-kernel-impl.jar:%OSB_HOME%\lib\alsb.jar
+                      &UC4RB_RUN_CMD#
+                      ERROR=%ERRORLEVEL%
+                  )
 :        CASE "UNIX"
                   if [ -z != $WEBLOGIC_HOME ]
-                    then
+                  then
                           . $WEBLOGIC_HOME/server/bin/setWLSEnv.sh
                           error=$?
-                          export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
-                          &UC4RB_RUN_CMD#
-                    else
+                          if [ $error -eq 0 ]
+                          then
+                              export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
+                              &UC4RB_RUN_CMD#
+                              error=$?
+                          fi
+                   else
                            echo "WEBLOGIC_HOME is not set"
                            error=1
-                    fi
+                   fi
 :        OTHER
 : ENDSWITCH]]></MSCRI>
 </SCRIPT>

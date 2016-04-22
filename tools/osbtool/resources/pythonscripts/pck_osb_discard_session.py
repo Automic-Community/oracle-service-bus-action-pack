@@ -18,7 +18,7 @@ try:
 		
 		# discard a session and provide a description to it.
 		sessionMBean.discardSession(sessionName)
-except java.lang.NullPointerException:
-		raise "ERROR: Cannot find session " + sys.argv[4], sys.exc_info()[0]
+
 except:
+		dumpStack()
 		raise "ERROR: Please check Input parameters.", sys.exc_info()[0]
