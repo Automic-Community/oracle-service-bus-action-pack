@@ -12,18 +12,69 @@
 
 : SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
-                  "&UC4RB_OSB_DOMAIN_HOME#\bin\setDomainEnv.cmd"
-                  &UC4RB_RUN_CMD#
+
+:  IF &UC4RB_OSB_WEBLOGIC_HOME# <> ''
+     SET  WEBLOGIC_HOME=&UC4RB_OSB_WEBLOGIC_HOME#
+:  ENDIF
+:  IF &UC4RB_OSB_HOME# <> ''
+     SET OSB_HOME=&UC4RB_OSB_HOME#
+:  ENDIF
+
+    IF  "%WEBLOGIC_HOME%" EQU "" (
+            echo "ERROR: WEBLOGIC_HOME is not set"
+            SET ERROR=1
+     ) ELSE (
+            IF "%OSB_HOME%" EQU "" (
+                  echo ""ERROR: OSB_HOME is not set""
+                  SET ERROR=1
+      )
+    )
+    IF  %ERROR% EQU 0 (
+          call %WEBLOGIC_HOME%\server\bin\setWLSEnv.cmd
+    )
+    IF %ERRORLEVEL% NEQ 0 SET ERROR=%ERRORLEVEL%
+
+    IF %ERROR% EQU 0 (
+      set CLASSPATH=%OSB_HOME%\lib\sb-kernel-api.jar;%OSB_HOME%\modules\com.bea.common.configfwk_1.7.0.0.jar;%OSB_HOME%\lib\sb-kernel-impl.jar;%OSB_HOME%\lib\alsb.jar;%CLASSPATH%
+    )
+    IF %ERRORLEVEL% NEQ 0 SET ERROR=%ERRORLEVEL%
+    IF  %ERROR% EQU 0 (
+      &UC4RB_RUN_CMD#
+    )
+    IF %ERRORLEVEL% NEQ 0 SET ERROR=%ERRORLEVEL%
+
 :        CASE "UNIX"
+:  IF &UC4RB_OSB_WEBLOGIC_HOME# <> ''
+      WEBLOGIC_HOME=&UC4RB_OSB_WEBLOGIC_HOME#
+:  ENDIF
+:  IF &UC4RB_OSB_HOME# <> ''
+      OSB_HOME=&UC4RB_OSB_HOME#
+:  ENDIF
                   if [ -z != $WEBLOGIC_HOME ]
                     then
                           . $WEBLOGIC_HOME/server/bin/setWLSEnv.sh
-                          error=$?
-                          export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
-                          &UC4RB_RUN_CMD#
+                          if [ "$?" -eq 0 ]
+                          then
+                                if [ -z != $OSB_HOME ]
+                                then
+                                        export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
+                                        if [ "$?" -eq 0 ]
+                                        then
+                                             &UC4RB_RUN_CMD#
+                                              error=$?
+                                        else
+                                              echo "ERROR: Unable to set the CLASSPATH"
+                                              error=1
+                                        fi
+                                else
+                                        echo "ERROR: OSB_HOME is not set"
+                                        error=1
+                                fi
+                          fi
                     else
-                           echo "WEBLOGIC_HOME is not set"
+                           echo "ERROR: WEBLOGIC_HOME is not set"
                            error=1
+
                     fi
 :        OTHER
 : ENDSWITCH]]></MSCRI>

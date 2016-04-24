@@ -22,7 +22,7 @@
 
 : SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
-:                SET &UC4RB_CONNECT_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, ' "%UC4_DECRYPTED_PWD%"')
+:                SET &UC4RB_CONNECT_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, ' "Ulan123!"')
 :        CASE "UNIX"
 :                SET &UC4RB_CONNECT_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, ' "$UC4_DECRYPTED_PWD"')
 :        OTHER
