@@ -13,8 +13,8 @@ Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
 *** Test Cases ***    OK_NOKSessionName    FileToImport
-Import Resource with Valid Inputs Providing Sudo Option as None
-                      OK                   Automic            /home/oracle/Desktop/agentInstallationUnix/test.jar
+Import Resource with Valid Inputs
+                      OK                   ${Session_Name}    ${Resource_Path}
 
 Assertion with Non-Existing Session Name
                       NOK                  Invalid            ${Resource_Path}
@@ -23,7 +23,7 @@ Assertion with Invalid Path of File to Import
                       NOK                  ${Session_Name}    Invalid
 
 Assertion with Invalid type of File to Import
-                      NOK                  Automic            /home/oracle/Desktop/agentInstallationUnix/invalid.jar
+                      NOK                  ${Session_Name}    ${Invalid_Resource_File}
 
 Assert Session Name As a Mandatory Field
                       OTHER                ${EMPTY}           ${Resource_Path}
@@ -40,7 +40,7 @@ Startup
 Import Resource Template
     [Arguments]    ${OK_NOK}    ${SessionName}    ${FileToImport}
     [Documentation]    This test will import a resource to OSB.
-    ...    -Precondition: To run this test suite OSB credentials should be known to user. To run the test cases on UNIX change the values of Hostname and other fields accordingly.
+    ...    -Precondition: To run this test suite OSB credentials should be known to user. To run the test cases on UNIX change the values of Hostname and other fields accordingly. Also change inputs for resource file and invalid resource file accordingly.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
     ...    -${SessionName}: This field specifies name of the session which already exists.
     ...    -${FileToImport}: This field specifies path to the resource which you want to import.

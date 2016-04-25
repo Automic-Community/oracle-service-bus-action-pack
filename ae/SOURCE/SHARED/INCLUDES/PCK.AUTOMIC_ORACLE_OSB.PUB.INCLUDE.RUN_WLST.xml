@@ -12,7 +12,7 @@
                   cd /d &UC4RB_OSB_HOME#\tools\configjar
                   SET ERROR=%ERRORLEVEL%
                   IF %ERROR% EQU 0 (
-                      call setenv.cmd
+                      call setenv.bat
                   )
                   SET ERROR=%ERRORLEVEL%
                   IF %ERROR% EQU 0 (
