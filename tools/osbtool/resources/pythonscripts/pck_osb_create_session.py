@@ -17,7 +17,8 @@ try:
 		
 		# create a session
 		sessionMBean.createSession(sessionName)
-		print "Session with the name %s created successfully" %sessionName
+		print "Session with the name [%s] created successfully" %sessionName
 except:
+		print "ERROR : Unable to create the session. Please check input parameters ", sys.exc_info()[0]
 		dumpStack()
-		raise "ERROR : Unable to create the session. Please check input parameters ", sys.exc_info()[0]
+		raise 
