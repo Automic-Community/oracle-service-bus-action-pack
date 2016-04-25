@@ -3,8 +3,8 @@ Resource          ../../../Env/default.txt
 
 *** Variables ***
 #---- Common Promptset Fields --------------------------------------------------------------------------------------
-${Weblogic_Home}    C:\Oracle\Middleware\wlserver_10.3
-${OSB_Home}       C:\Oracle\Middleware\Oracle_OSB1
+${Weblogic_Home}    C:\\Oracle\\Middleware\\wlserver_10.3
+${OSB_Home}       C:\\Oracle\\Middleware\\Oracle_OSB1
 ${OSB_Protocol}    t3
 ${OSB_Hostname}    192.168.47.143
 ${OSB_Username}    weblogic
@@ -15,3 +15,5 @@ ${Sudo_Username}    oracle
 ${Java_Options}    -Xmx1024m
 #---- Common Promptset Fields --------------------------------------------------------------------------------------
 ${Session_Name}    session1
+#-----Activate Session----------------------------------------------------------------------------------------------
+${SessionDesc}    Test

@@ -45,6 +45,12 @@ Following actions are supported for Oracle OSB
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.CREATE_SESSION
 * Action Description: This action is used to create a session in Oracle Service Bus with the name provided by the user.
 
+* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.ACTIVATE_SESSION
+* Action Description: This action is used to activate a session in Oracle Service Bus by provided session name
+
+* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DISCARD_SESSION
+* Action Description: This action is used to destroy a session in Oracle Service Bus by provided session name
+
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
 * Action Description: This action is used to import a resource into Oracle Service Bus]]></DOC>
 </DOCU_Docu>

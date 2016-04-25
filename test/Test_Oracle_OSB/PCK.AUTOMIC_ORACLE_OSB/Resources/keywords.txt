@@ -118,3 +118,16 @@ Connect to OSB
     Run Keyword If    '${Password}' == 'Invalid'    Action Set    &UC4RB_OSB_PASSWORD#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_PASSWORD#    ${Password}
     Action Set    &UC4RB_OSB_PORT#    ${Port}
+
+Common Inputs
+    Action Set    &UC4RB_OSB_PROTOCOL#    ${OSB_Protocol}
+    Action Set    &UC4RB_OSB_HOST_NAME#    ${OSB_Hostname}
+    Action Set    &UC4RB_OSB_USERNAME#    ${OSB_Username}
+    Action Set    &UC4RB_OSB_PASSWORD#    ${OSB_Password}
+    Action Set    &UC4RB_OSB_PORT#    ${OSB_Port}
+    Action Set    &UC4RB_OSB_WEBLOGIC_HOME#    ${Weblogic_Home}
+    Action Set    &UC4RB_OSB_HOME#    ${OSB_Home}
+    Action Set    &UC4RB_OSB_JAVA_OPTIONS#    ${Java_Options}
+    Action Set    &UC4RB_SUDO_PASSWORD#    ${Sudo_Password}
+    Action Set    &UC4RB_USE_SUDO#    None
+    Action Set    &UC4RB_SUDO_USER#    ${Sudo_Username}

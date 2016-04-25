@@ -1,0 +1,49 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        discard_session
+Default Tags
+Test Template     Discard Session Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    SessionName
+Discard Session With Valid Inputs
+                      [Tags]    main_scenarios
+                      OK        Automic2
+
+Discard With Non-Existing Session Name
+                      NOK       Invalid
+
+Assert Session Name As a Mandatory Field
+                      OTHER     ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "DISCARD SESSION"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Discard Session Template
+    [Arguments]    ${OK_NOK}    ${SessionName}
+    [Documentation]    This test discard the already activated session in OSB.
+    ...    -Precondition: To run these test cases OSB credentials and existed session name should be known to user. To run the test cases on UNIX change the values of OSB credentials and other fields accordingly.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
+    ...    -${SessionName}: This field specifies name of the session you want to discard.
+    Generate String
+    Action Create    ${_DISCARD_SESSION_ACTION}
+    Common Inputs
+    Run Keyword If    '${SessionName}' == 'blank'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OSB_SESSION_NAME#    ${SessionName}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure    ELSE
+    ...    Assert Mandatory
+
+Teardown
+    Log    *******End Test "DISCARD SESSION"*******

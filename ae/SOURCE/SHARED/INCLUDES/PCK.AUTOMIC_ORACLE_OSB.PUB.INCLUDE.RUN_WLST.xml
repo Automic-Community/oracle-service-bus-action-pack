@@ -7,10 +7,7 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[! printing the command formed
-: PRINT "EXECUTING CMD : &UC4RB_RUN_CMD#"
-
-: SWITCH &$PLATFORM#
+<MSCRI><![CDATA[: SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
                   SET  OSB_HOME=&UC4RB_OSB_HOME#
                   call &UC4RB_OSB_WEBLOGIC_HOME#\server\bin\setWLSEnv.cmd
@@ -21,17 +18,15 @@
                           echo "ERROR: Unable to set WLS environment."
                           SET ERROR=1
                   )
-                  IF %ERRORLEVEL% EQU 0 (
+                  IF %ERROR% EQU 0 (
                           &UC4RB_RUN_CMD#
-                  ) ELSE (
-                          echo "ERROR: Unable to set the CLASSPATH."
-                          SET ERROR=1
+                          SET ERROR=%ERRORLEVEL%
                   )
-                  IF %ERRORLEVEL% NEQ 0 (
+                  IF %ERROR% NEQ 0 (
                           echo "ERROR: Unable to run the command."
-                          SET ERROR=1
                   )
 :        CASE "UNIX"
+
                   OSB_HOME=&UC4RB_OSB_HOME#
                   . &UC4RB_OSB_WEBLOGIC_HOME#/server/bin/setWLSEnv.sh
 
@@ -48,15 +43,11 @@
                   then
                           &UC4RB_RUN_CMD#
                           error=$?
-                  else
-                          echo "ERROR: Unable to set the CLASSPATH."
-                          error=1
                   fi
 
                   if [ "$error" -ne 0 ]
                   then
                           echo "ERROR: Unable to run the command."
-                          error=1
                   fi
 :        OTHER
 : ENDSWITCH]]></MSCRI>
