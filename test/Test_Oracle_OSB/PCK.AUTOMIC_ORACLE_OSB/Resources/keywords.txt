@@ -102,8 +102,6 @@ Sudo User Details
     Action Set    &UC4RB_SUDO_USER#    ${SudoUsername}
 
 Set Home
-    Run Keyword If    '${WeblogicHome}' == 'Invalid'    Action Set    &UC4RB_OSB_WEBLOGIC_HOME#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_OSB_WEBLOGIC_HOME#    ${WeblogicHome}
     Run Keyword If    '${OSBHome}' == 'Invalid'    Action Set    &UC4RB_OSB_HOME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_HOME#    ${OSBHome}
     Run Keyword If    '${JavaOptions}' == 'Invalid'    Action Set    &UC4RB_OSB_JAVA_OPTIONS#    ${Generated_Name}_${Time}    ELSE    Action Set
@@ -125,7 +123,6 @@ Common Inputs
     Action Set    &UC4RB_OSB_USERNAME#    ${OSB_Username}
     Action Set    &UC4RB_OSB_PASSWORD#    ${OSB_Password}
     Action Set    &UC4RB_OSB_PORT#    ${OSB_Port}
-    Action Set    &UC4RB_OSB_WEBLOGIC_HOME#    ${Weblogic_Home}
     Action Set    &UC4RB_OSB_HOME#    ${OSB_Home}
     Action Set    &UC4RB_OSB_JAVA_OPTIONS#    ${Java_Options}
     Action Set    &UC4RB_SUDO_PASSWORD#    ${Sudo_Password}

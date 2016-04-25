@@ -12,66 +12,18 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    SudoPassword        Options    SudoUsername        WeblogicHome        OSBHome        JavaOptions        Protocol           Hostname           Username           Password           Port           SessionName
-Create Session with Valid Inputs Providing Sudo Option as None
-                      OK        ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Automic
-
-Create Session with Valid Inputs Providing Sudo Option as Su
-                      OK        ${Sudo_Password}    Su         ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Automic1
-
-Create Session with Valid Inputs Providing Sudo Option as Sudo
-                      OK        ${Sudo_Password}    Sudo       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Automic2
-
-Create Session with Valid Inputs also asserting Sudo Details as Optional
-                      OK        ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Testing
+*** Test Cases ***    OK_NOK    SessionName
+Create Session with Valid Inputs
+                      OK        Automic
 
 Create Session with already existing Session Name
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Testing
-
-Assertion with Invalid Weblogic Home
-                      NOK       ${Sudo_Password}    None       ${Sudo_Username}    Invalid             ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Invalid OSB Home
-                      NOK       ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    Invalid        ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Invalid Java Options
-                      NOK       ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    Invalid            ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Invalid Protocol
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           https              ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Non-Existing Hostname
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    Invalid            ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Non-Existing Username
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    Invalid            ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assertion with Invalid Password
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    Invalid            ${OSB_Port}    ${Session_Name}
-
-Assertion with Invalid Port
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    3              ${Session_Name}
+                      NOK       Automic
 
 Assertion with Invalid Session Name
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${Weblogic_Home}    ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    Invalid
-
-Assert Weblogic Home As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${EMPTY}            ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assert OSB Home As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${EMPTY}       ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assert Hostname As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${EMPTY}           ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assert Username As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${EMPTY}           ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
-Assert Password As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${EMPTY}           ${OSB_Port}    ${Session_Name}
+                      NOK       Invalid
 
 Assert Session Name As a Mandatory Field
-                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${Weblogic_Home}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${EMPTY}
+                      OTHER     ${EMPTY}
 
 *** Keywords ***
 Startup
@@ -80,29 +32,14 @@ Startup
     Connect AE
 
 Create Session Template
-    [Arguments]    ${OK_NOK}    ${SudoPassword}    ${Options}    ${SudoUsername}    ${WeblogicHome}    ${OSBHome}
-    ...    ${JavaOptions}    ${Protocol}    ${Hostname}    ${Username}    ${Password}    ${Port}
-    ...    ${SessionName}
+    [Arguments]    ${OK_NOK}    ${SessionName}
     [Documentation]    This test will create a session on OSB.
     ...    -Precondition: To run this test suite OSB credentials should be known to user. To run the test cases on UNIX change the values of Hostname and other fields accordingly.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
-    ...    -${SudoPassword}: This field specifies password for the super user for unix environment.
-    ...    -${Options}: This field specifies options to use like su or sudo.
-    ...    -${SudoUsername}: This field specifies username for the super user for unix environment.
-    ...    -${WeblogicHome}: This field specifies system environment variable for Weblogic.
-    ...    -${JavaOptions}: This field specifies the java options.
-    ...    -${OSBHome}: This field specifies system environment variable for OSB.
-    ...    -${Protocol}: This field specifies protocol over which you want to connect to OSB.
-    ...    -${Hostname}: This field specifies hostname of OSB.
-    ...    -${Username}: This field specifies username for OSB.
-    ...    -${Password}: This field specifies the password for provided username.
-    ...    -${Port}: This field specifies port on which OSB is running.
     ...    -${SessionName}: This field specifies name of the session you want to create.
     Generate String
     Action Create    ${_CREATE_SESSION_ACTION}
-    Sudo User Details
-    Set Home
-    Connect to OSB
+    Common Inputs
     Run Keyword If    '${SessionName}' == 'Invalid'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_SESSION_NAME#    ${SessionName}
     Set Overwrite Agent
