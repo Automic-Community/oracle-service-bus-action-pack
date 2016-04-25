@@ -21,6 +21,7 @@
                           error=$?
                           export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
                           &UC4RB_RUN_CMD#
+                          error=$?
                     else
                            echo "WEBLOGIC_HOME is not set"
                            error=1
