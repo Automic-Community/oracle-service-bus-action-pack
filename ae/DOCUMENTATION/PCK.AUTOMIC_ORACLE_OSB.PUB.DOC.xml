@@ -43,7 +43,10 @@ PCK.AUTOMIC_OPENSTACK.PRV.VARA.PACKAGE_PARAMETERS
 Following actions are supported for Oracle OSB
 
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.CREATE_SESSION
-* Action Description: This action is used to create a session in Oracle Service Bus with the name provided by the user.]]></DOC>
+* Action Description: This action is used to create a session in Oracle Service Bus with the name provided by the user.
+
+* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
+* Action Description: This action is used to import a resource into Oracle Service Bus]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
