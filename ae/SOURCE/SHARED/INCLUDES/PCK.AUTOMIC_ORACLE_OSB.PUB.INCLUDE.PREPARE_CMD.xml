@@ -9,7 +9,14 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[! -------------------------------Preparing arguments to connect to the server------------------
 ! PYTHON FILE PATH
-: SET &UC4RB_CONNECT_CMD# = "java weblogic.WLST ""&PYTHON_FILE#"""
+: SET &UC4RB_CONNECT_CMD# = "java "
+
+! JAVA OPTION
+: IF &UC4RB_OSB_JAVA_OPTIONS# <> ""
+:       SET &UC4RB_CONNECT_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, &UC4RB_OSB_JAVA_OPTIONS#)
+: ENDIF
+
+: SET &UC4RB_CONNECT_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, " weblogic.WLST ""&PYTHON_FILE#""")
 
 ! USERNAME
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ESCAPE_ARG_VALUE &TEMP_OPTION_VALUE# = &UC4RB_OSB_USERNAME#

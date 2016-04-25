@@ -9,23 +9,15 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[:SWITCH &$PLATFORM#
 :CASE "WINDOWS"
-IF %ERRORLEVEL% NEQ 0 (
-  SET ERRORS=%ERRORLEVEL%
-)
-IF %ERRORS% EQU 0 (
-:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
+IF %ERROR% EQU 0 (
+:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
 ) ELSE (
-:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
 )
-@set retcode=%ERRORLEVEL%
-@if NOT %ERRORLEVEL% == 0 goto :retcode
+@set retcode=%ERROR%
+@if NOT %ERROR% == 0 goto :retcode
 
 :CASE "UNIX"
-execcode=$?
-if [ "$execcode" -ne "0" ]
-then
-    errors=$execcode
-fi
 if [ "$error" -eq 0 ]
 then
 :  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
