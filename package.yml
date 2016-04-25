@@ -10,5 +10,9 @@ binaries:
     resources: 
       - name: CREATE_SESSION
         type: TEXT
-        path: tools/osbtool/resources/pythonscripts/pck_oracle_create_session.py
+        path: tools/osbtool/resources/pythonscripts/pck_osb_create_session.py
+        version: 1.0.0
+      - name: IMPORT_RESOURCE
+        type: TEXT
+        path: tools/osbtool/resources/pythonscripts/pck_osb_import_resource.py
         version: 1.0.0
