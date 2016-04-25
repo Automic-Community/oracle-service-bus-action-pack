@@ -3,7 +3,6 @@ Resource          ../../../Env/default.txt
 
 *** Variables ***
 #---- Common Promptset Fields --------------------------------------------------------------------------------------
-${Weblogic_Home}    C:\\Oracle\\Middleware\\wlserver_10.3
 ${OSB_Home}       C:\\Oracle\\Middleware\\Oracle_OSB1
 ${OSB_Protocol}    t3
 ${OSB_Hostname}    192.168.47.143

@@ -9,45 +9,41 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[: SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
-                  SET  OSB_HOME=&UC4RB_OSB_HOME#
-                  call &UC4RB_OSB_WEBLOGIC_HOME#\server\bin\setWLSEnv.cmd
-
-                  IF %ERRORLEVEL% EQU 0 (
-                          set CLASSPATH=%OSB_HOME%\lib\sb-kernel-api.jar;%OSB_HOME%\modules\com.bea.common.configfwk_1.7.0.0.jar;%OSB_HOME%\lib\sb-kernel-impl.jar;%OSB_HOME%\lib\alsb.jar;%CLASSPATH%
-                  ) ELSE (
-                          echo "ERROR: Unable to set WLS environment."
-                          SET ERROR=1
-                  )
+                  cd /d &UC4RB_OSB_HOME#\tools\configjar
+                  SET ERROR=%ERRORLEVEL%
                   IF %ERROR% EQU 0 (
-                          &UC4RB_RUN_CMD#
-                          SET ERROR=%ERRORLEVEL%
+                      call setenv.cmd
                   )
+                  SET ERROR=%ERRORLEVEL%
+                  IF %ERROR% EQU 0 (
+                     &UC4RB_RUN_CMD#
+                  ) ELSE (
+                      echo "ERROR: Unable to set OSB environment."
+                  )
+                  SET ERROR=%ERRORLEVEL%
                   IF %ERROR% NEQ 0 (
-                          echo "ERROR: Unable to run the command."
+                     echo "ERROR: Unable to execute the command."
                   )
 :        CASE "UNIX"
-
-                  OSB_HOME=&UC4RB_OSB_HOME#
-                  . &UC4RB_OSB_WEBLOGIC_HOME#/server/bin/setWLSEnv.sh
-
-                  if [ "$?" -eq 0 ]
-                  then
-                          export CLASSPATH=$CLASSPATH:$OSB_HOME/lib/sb-kernel-api.jar:$OSB_HOME/modules/com.bea.common.configfwk_1.7.0.0.jar:$OSB_HOME/lib/sb-kernel-impl.jar:$OSB_HOME/lib/alsb.jar
-                          error=$?
-                  else
-                          echo "ERROR: Unable to set WLS environment."
-                          error=1
-                  fi
-
+                  cd &UC4RB_OSB_HOME#/tools/configjar
+                  error=$?
                   if [ "$error" -eq 0 ]
                   then
-                          &UC4RB_RUN_CMD#
-                          error=$?
+                     . ./setenv.sh
+                     error=$?
+                  else
+                     echo "Invalid OSB Home directory"
                   fi
-
+                  if [ "$error" -eq 0 ]
+                  then
+                     &UC4RB_RUN_CMD#
+                     error=$?
+                  else
+                     echo "Unable to set OSB environment"
+                  fi
                   if [ "$error" -ne 0 ]
                   then
-                          echo "ERROR: Unable to run the command."
+                    echo "ERROR: Unable to execute the command."
                   fi
 :        OTHER
 : ENDSWITCH]]></MSCRI>

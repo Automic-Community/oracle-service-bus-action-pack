@@ -11,7 +11,7 @@ binaries:
       - name: CREATE_SESSION
         type: TEXT
         path: tools/osbtool/resources/pythonscripts/pck_osb_create_session.py
-        version: 1.0.0
+        version: 1.0.0      
       - name: ACTIVATE_SESSION
         type: TEXT
         path: tools/osbtool/resources/pythonscripts/pck_osb_activate_session.py
@@ -19,4 +19,8 @@ binaries:
       - name: DISCARD_SESSION
         type: TEXT
         path: tools/osbtool/resources/pythonscripts/pck_osb_discard_session.py
+        version: 1.0.0
+      - name: IMPORT_RESOURCE
+        type: TEXT
+        path: tools/osbtool/resources/pythonscripts/pck_osb_import_resource.py
         version: 1.0.0
