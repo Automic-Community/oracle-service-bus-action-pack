@@ -20,9 +20,13 @@ try:
 		# activate a session and provide a description to it.
 		if not sessionDescription:
 			sessionMBean.activateSession(sessionName, None)
+			print "Session with the name [%s] activated successfully" %sessionName
 		else:
 			sessionMBean.activateSession(sessionName, sessionDescription)
+			print "Session with the name [%s] activated successfully" %sessionName
 
 except:
-		raise "ERROR: Please check Input parameters.", sys.exc_info()[0]
+		print "ERROR : Unable to activate the session. Please check input parameters ", sys.exc_info()[0]
+		dumpStack()
+		raise
 		

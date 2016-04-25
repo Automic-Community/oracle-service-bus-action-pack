@@ -63,6 +63,15 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+</PRPTBOX>
+</PROMPTSET>
+</node>
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION">
@@ -138,6 +147,15 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+</PRPTBOX>
+</PROMPTSET>
+</node>
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION">
@@ -196,6 +214,15 @@
 <UC4RB_OSB_PORTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PORT#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">7001</UC4RB_OSB_PORTs.00>
 <UC4RB_OSB_PROTOCOLs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PROTOCOL#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS">t3</UC4RB_OSB_PROTOCOLs.00>
 <UC4RB_OSB_USERNAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_USERNAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS"/>
+</PRPTBOX>
+</PROMPTSET>
+</node>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
+<UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -283,6 +310,11 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.CONNECTION_DETAILS" prptmode="1"/>
 </PROMPTSET>
 </node>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" prptmode="1"/>
+</PROMPTSET>
+</node>
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.DISCARD_SESSION" prptmode="1"/>
@@ -329,38 +361,39 @@
 PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DISCARD_SESSION
 
 = General description =
-This action is used to discard a session in Oracle Service Bus.
-
-Any changes done in the session would be discarded.
+ This action is used to destroy a session in Oracle Service Bus by provided session name. 
 
 = Failure Conditions =
-* Session with specified name does not exist or cannot be discarded.
-
-= Inputs =
-* Host name 		: Specify name or IP address of OSB.
-* Username 		: Specify username which will be used for OSB host. E.g. username
-* Password		: Specify password for giver username.
-* Port			: Specify port number of the OSB host. E.g. 7001
-* Protocol 		: Specify protocol you want to use for connection. Either t3, https or http
-* Session name		: Specify name of the session you want to discard. E.g. mysession
-* Sudo Password		: The password for the sudo command
-* Options		: Run using sudo password (and sudo username if specfied)
-* Sudo Username		: The username to be used for the sudo command
-* Overwrite Agent	: Overwrites the default agent
-* Overwrite Login 	: Overwrites the default login
-
-= Behaviour =
 (none)
 
-=Return Value=
+= Inputs =
+* Protocol		: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
+* Username 		: Specify username which will be used for OSB host.
+* Password		: Specify password for given username.
+* Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
+* Weblogic Home		: Specify the webLogic home directory. E.g. /oracle/fmwhome/wlserver_10.3
+* OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
+* Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
+* Session name		: Specify name of the session you want to activate. E.g. mySession
+* Sudo Password		: The password for the sudo command.
+* Options		: Run using sudo password (and sudo username if specfied).
+* Sudo Username		: The username to be used for the sudo command.
+* Overwrite Agent	: Overwrites the default agent
+* Overwrite Login	: Overwrites the default login
+
+= Behavior =
 (none)
 
 = Outputs =
 * Return code is 0 in case of success.
 * Return code is 1 in case of failure.
 
+= Rollback =
+(none)
+
 = Logging =
-Logs will be displayed in the AE report.
+AE logs will be displayed in the AE report.
 
 = Example =
 (none)]]></DOC>

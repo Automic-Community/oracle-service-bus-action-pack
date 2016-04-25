@@ -18,7 +18,9 @@ try:
 		
 		# discard a session and provide a description to it.
 		sessionMBean.discardSession(sessionName)
+		print "Session with the name [%s] discard successfully" %sessionName
 
 except:
+		print "ERROR : Unable to discard the session. Please check input parameters ", sys.exc_info()[0]
 		dumpStack()
-		raise "ERROR: Please check Input parameters.", sys.exc_info()[0]
+		raise

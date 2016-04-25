@@ -103,7 +103,7 @@
 !-------------------------------------Logging input parameters-------------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.PARAM_VALIDATION
 
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CONNECTION_LOGGING
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.COMMON_LOGGING
 
 : SET &UC4RB_LOGGING_PARAMETER# = "Session name"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OSB_SESSION_NAME#"
@@ -133,8 +133,6 @@
 
 ! Printing the command formed
 : PRINT &UC4RB_ACTIVATE_SESSION_CMD#
-export WEBLOGIC_HOME=/oracle/fmwhome/wlserver_10.3
-export OSB_HOME=/oracle/fmwhome/Oracle_OSB1
 ! Setting WLST environment and executing activate session command
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST &UC4RB_RUN_CMD# = &UC4RB_ACTIVATE_SESSION_CMD#
 
@@ -142,8 +140,9 @@ export OSB_HOME=/oracle/fmwhome/Oracle_OSB1
 :SET &UC4RB_LOGGING_INFO# = "******** ACTIVATE SESSION ACTION EXECUTED SUCCESSFULLY ********"
 :SET &UC4RB_LOGGING_ERROR# = "******** ACTIVATE SESSION ACTION FAILED ********"
 
+:INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
 :INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS
-:INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
+]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
