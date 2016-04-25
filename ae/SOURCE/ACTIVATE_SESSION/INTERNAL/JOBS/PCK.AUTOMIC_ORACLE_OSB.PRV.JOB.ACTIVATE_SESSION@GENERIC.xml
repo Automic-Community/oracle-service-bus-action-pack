@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_GENERIC AttrType="GENERIC" name="PCK.AUTOMIC_ORACLE_OSB.PRV.JOB.CREATE_SESSION@GENERIC">
+<JOBS_GENERIC AttrType="GENERIC" name="PCK.AUTOMIC_ORACLE_OSB.PRV.JOB.ACTIVATE_SESSION@GENERIC">
 <XHEADER state="1">
-<Title>Create Session</Title>
+<Title>Activate Session in OSB</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -28,7 +28,7 @@
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
 <AutoDeactErrorFree>0</AutoDeactErrorFree>
-<DeactWhen>ANY_OK</DeactWhen>
+<DeactWhen/>
 <DeactDelay>0</DeactDelay>
 <AutoDeactAlways>1</AutoDeactAlways>
 <AttDialog>0</AttDialog>
@@ -93,47 +93,56 @@
 <FInclSubDirs>0</FInclSubDirs>
 </ROLLBACK>
 <PRE_SCRIPT mode="1" replacementmode="1" state="1">
-<PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
+<PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS
+]]></PSCRI>
 </PRE_SCRIPT>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:DEFINE &STRING_ARR#,string,100
-:INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
-:INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+<MSCRI><![CDATA[: DEFINE &STRING_ARR#, string, 100
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
 !-------------------------------------Logging input parameters-------------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.PARAM_VALIDATION
 
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.COMMON_LOGGING
 
-: SET &UC4RB_LOGGING_PARAMETER# = "Session Name"
+: SET &UC4RB_LOGGING_PARAMETER# = "Session name"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OSB_SESSION_NAME#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Session Description"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OSB_SESSION_DESC#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-! -----------------------------------Preparing the create session command to run python script-------------------------------------------------------------------
+!-------------------------------------Create WLST activate session command with arguments-------------------------------------------------------------------------------------------------
 ! set AGENT working directory
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
 
-: SET &PYTHON_FILE_NAME# = "CREATE_SESSION"
+: SET &PYTHON_FILE_NAME# = "ACTIVATE_SESSION"
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ATTACH_PYTHON
 
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.PREPARE_CMD
 
 ! SESSION NAME
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ESCAPE_ARG_VALUE &TEMP_OPTION_VALUE# = &UC4RB_OSB_SESSION_NAME#
-: SET &UC4RB_CREATE_SESSION_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, ' "&UC4RB_OSB_ESC_VALUE#"')
+: SET &UC4RB_ACTIVATE_SESSION_CMD# = STR_CAT(&UC4RB_CONNECT_CMD#, ' "&UC4RB_OSB_ESC_VALUE#"')
 
+! SESSION DESCRIPTION
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ESCAPE_ARG_VALUE &TEMP_OPTION_VALUE# = &UC4RB_OSB_SESSION_DESC#
+: SET &UC4RB_ACTIVATE_SESSION_CMD# = STR_CAT(&UC4RB_ACTIVATE_SESSION_CMD#, ' "&UC4RB_OSB_ESC_VALUE#"')
 
-! Setting execution environment
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST &UC4RB_RUN_CMD# = &UC4RB_CREATE_SESSION_CMD#
+! Printing the command formed
+: PRINT &UC4RB_ACTIVATE_SESSION_CMD#
+! Setting WLST environment and executing activate session command
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST &UC4RB_RUN_CMD# = &UC4RB_ACTIVATE_SESSION_CMD#
 
-!-----------------------------------Error Handling------------------------------------------------------------------------------------------------------------
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** CREATE SESSION ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CREATE SESSION ACTION FAILED ********"
+:SET &UC4RB_LOGGING_INFO# = "******** ACTIVATE SESSION ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** ACTIVATE SESSION ACTION FAILED ********"
 
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS]]></MSCRI>
+:INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
+:INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS
+]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
