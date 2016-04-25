@@ -5,9 +5,9 @@ from com.bea.wli.config import Ref
 
 try:
 		username = sys.argv[1]
-		password = sys.argv[4]
-		url = sys.argv[2]
-		sessionName = sys.argv[3]
+		password = sys.argv[2]
+		url = sys.argv[3]
+		sessionName = sys.argv[4]
 		
 		connect(username, password, url)
 		domainRuntime()
@@ -19,6 +19,5 @@ try:
 		sessionMBean.createSession(sessionName)
 		print "Session with the name %s created successfully" %sessionName
 except:
-		print "Unexpected error: ", sys.exc_info()[0]
 		dumpStack()
-		raise
+		raise "ERROR : Unable to create the session. Please check input parameters ", sys.exc_info()[0]
