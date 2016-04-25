@@ -67,7 +67,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_JAVA_OPTIONs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTION#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -151,7 +151,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_JAVA_OPTIONs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTION#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -221,7 +221,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_JAVA_OPTIONs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTION#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
+<UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -352,7 +352,47 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.CREATE_SESSION
+
+= General description =
+This action is used to create a session in Oracle Service Bus with the name provided by the user.
+
+= Failure Conditions =
+(none)
+
+= Inputs =
+* Protocol		: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
+* Username 		: Specify username which will be used for OSB host.
+* Password		: Specify password for giver username.
+* Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
+* Protocol		: Specify protocol you want to use for connection. E.g. http, 
+* Weblogic Home		: Specify the webLogic home directory. E.g. /oracle/fmwhome/wlserver_10.3
+* OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
+* Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
+* Session name		: Specify name of the session you want to create. E.g. mySession
+* Sudo Password		: The password for the sudo command.
+* Options		: Run using sudo password (and sudo username if specfied).
+* Sudo Username		: The username to be used for the sudo command.
+* Overwrite Agent	: Overwrites the default agent
+* Overwrite Login	: Overwrites the default login
+
+= Behavior =
+(none)
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is 1 in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =
+(none)]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
