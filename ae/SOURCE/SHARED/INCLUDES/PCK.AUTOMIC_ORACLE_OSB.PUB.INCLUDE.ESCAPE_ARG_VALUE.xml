@@ -7,11 +7,16 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[
-! We escape double-quotes for java Strings
-: SET &UC4RB_OSB_ESC_VALUE# = STR_TRIM("&TEMP_OPTION_VALUE#")
-: SET &UC4RB_OSB_ESC_VALUE# = STR_SUB(&UC4RB_OSB_ESC_VALUE#, """", "\""")
-]]></MSCRI>
+<MSCRI><![CDATA[! Escaping characters
+:  SWITCH &$PLATFORM#
+:    CASE "WINDOWS"
+:         INC PCK.ITPA_SHARED.PRV.INCLUDE.ESCAPE_CHARS@WINDOWS &UC4RB_ESCAPED_STRING# = &TEMP_OPTION_VALUE#
+:    CASE "UNIX"
+:         INC PCK.ITPA_SHARED.PRV.INCLUDE.ESCAPE_CHARS@UNIX &UC4RB_ESCAPED_STRING# = &TEMP_OPTION_VALUE#
+:    OTHER
+:  ENDSWITCH
+
+: SET &UC4RB_OSB_ESC_VALUE#=&TEMP_OPTION_VALUE#]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[It escapes the input parameters and wrap the parameter surrounded by quotes(").]]></DOC>
