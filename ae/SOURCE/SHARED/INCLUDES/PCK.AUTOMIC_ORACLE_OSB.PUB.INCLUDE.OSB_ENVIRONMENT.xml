@@ -17,7 +17,7 @@
 :ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[It initializes the ?error? variable for both windows and unix.]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

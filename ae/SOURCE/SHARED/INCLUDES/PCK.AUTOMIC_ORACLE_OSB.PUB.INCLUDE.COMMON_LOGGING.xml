@@ -36,7 +36,7 @@
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[Common AE script to log Connection details parameters.]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

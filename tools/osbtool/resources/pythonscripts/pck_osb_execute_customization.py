@@ -12,6 +12,11 @@ exitFlag = 1
 
 try:
     try:
+
+        if len(sys.argv) < 7:
+            raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <customFilePath>'
+                             )
+
         url = sys.argv[1]
         username = sys.argv[2]
         password = sys.argv[3]
