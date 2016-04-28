@@ -15,24 +15,32 @@ def deleteProject(alsbConfigurationMBean, projectName):
 		else:
 			raise ValueError('No OSB project exists with name ' + projectName)
 	except:
-		print 'ERROR: Exception occurred while deleting OSB project.', sys.exc_info()[1]
 		raise
 
 connectObj = False
 failStatus = 1
 try:
 	try:
+		if len(sys.argv) < 6:
+			raise ValueError('Missing Arguments to python script.')
+		
 		username = sys.argv[1]
 		password = sys.argv[2]
 		url = sys.argv[3]
 		sessionName = sys.argv[4]
 		projectName = sys.argv[5]
 		
-		# connect to OSB with URL endpoint, username and password
-		connectObj = connect(username, password, url)
+		#logging the inputs received
+		print "URL : [%s]" %url
+		print "Username : [%s]" %username
+		print "Session Name : [%s]" %sessionName
+		print "Project Name : [%s]" %projectName
+		
+		# connect to OSB with URL endpoint, username and password 
+		connect(username, password, url)
 		connectObj = True
 		domainRuntime()
-
+	
 		# obtain ALSBConfigurationMBean to delete project
 		alsbConfigurationMBean = findService(ALSBConfigurationMBean.NAME + "." + sessionName, ALSBConfigurationMBean.TYPE)
 		if alsbConfigurationMBean is not None:
@@ -46,4 +54,4 @@ finally:
 	if connectObj:
 		print 'INFO: Disconnecting from OSB ' + sys.argv[3]
 		disconnect()
-	exit(exitcode=failStatus)
+	exit("y", failStatus)
