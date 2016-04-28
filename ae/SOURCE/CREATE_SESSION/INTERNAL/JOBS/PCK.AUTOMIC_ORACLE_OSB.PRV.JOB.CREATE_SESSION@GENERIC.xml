@@ -97,8 +97,8 @@
 </PRE_SCRIPT>
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[:DEFINE &STRING_ARR#,string,100
-:INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
 :INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+:INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.OSB_ENVIRONMENT
 !-------------------------------------Logging input parameters-------------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.PARAM_VALIDATION
 
@@ -111,8 +111,7 @@
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
 ! -----------------------------------Preparing the create session command to run python script-------------------------------------------------------------------
-! set AGENT working directory
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
+
 
 : SET &PYTHON_FILE_NAME# = "CREATE_SESSION"
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ATTACH_PYTHON
@@ -127,13 +126,9 @@
 ! Setting execution environment
 : INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.RUN_WLST &UC4RB_RUN_CMD# = &UC4RB_CREATE_SESSION_CMD#
 
-!-----------------------------------Error Handling------------------------------------------------------------------------------------------------------------
-! Status messages
 : SET &UC4RB_LOGGING_INFO# = "******** CREATE SESSION ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CREATE SESSION ACTION FAILED ********"
-
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_JOBSTATUS]]></MSCRI>
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>

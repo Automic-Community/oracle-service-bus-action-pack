@@ -68,7 +68,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -153,7 +152,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -224,7 +222,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -371,21 +368,20 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.ACTIVATE_SESSION
 (none)
 
 = Inputs =
-* Protocol				: Specify protocol you want to use for connection. Possible values are t3, http, https.
-* Host name				: Specify name or IP address of OSB. E.g. 127.0.0.1
-* Username 				: Specify username which will be used for OSB host.
-* Password				: Specify password for given username.
-* Port					: Specify port number of the OSB host. Default port is 7001. Eg. 5678
-* Weblogic Home			: Specify the webLogic home directory. E.g. /oracle/fmwhome/wlserver_10.3
-* OSB Home				: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
-* Java options			: Specify the java options. E.g. -Xmx1024m -Xms500m
-* Session name			: Specify name of the session you want to activate. E.g. mySession
+* Protocol		: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
+* Username 		: Specify username which will be used for OSB host.
+* Password		: Specify password for given username.
+* Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
+* OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
+* Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
+* Session name		: Specify name of the session you want to activate. E.g. mySession
 * Session description	: Provide description to this session. E.g. mySession
-* Sudo Password			: The password for the sudo command.
-* Options				: Run using sudo password (and sudo username if specfied).
-* Sudo Username			: The username to be used for the sudo command.
-* Overwrite Agent		: Overwrites the default agent
-* Overwrite Login		: Overwrites the default login
+* Sudo Password		: The password for the sudo command.
+* Options		: Run using sudo password (and sudo username if specfied).
+* Sudo Username		: The username to be used for the sudo command.
+* Overwrite Agent	: Overwrites the default agent
+* Overwrite Login	: Overwrites the default login
 
 = Behavior =
 (none)

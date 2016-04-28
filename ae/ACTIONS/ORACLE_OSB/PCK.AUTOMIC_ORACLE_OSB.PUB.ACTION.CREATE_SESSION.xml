@@ -68,7 +68,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -152,7 +151,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -222,7 +220,6 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS">
 <UC4RB_OSB_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 <UC4RB_OSB_JAVA_OPTIONSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_JAVA_OPTIONS#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
-<UC4RB_OSB_WEBLOGIC_HOMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_WEBLOGIC_HOME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -367,7 +364,6 @@ This action is used to create a session in Oracle Service Bus with the name prov
 * Username 		: Specify username which will be used for OSB host.
 * Password		: Specify password for given username.
 * Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
-* Weblogic Home		: Specify the webLogic home directory. E.g. /oracle/fmwhome/wlserver_10.3
 * OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
 * Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
 * Session name		: Specify name of the session you want to create. E.g. mySession
