@@ -7,8 +7,13 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX]]></MSCRI>
+<MSCRI><![CDATA[error=$?
+if [ "$error" -ne "0" ]
+then
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+  exit $error
+fi
+]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[Varify executed command return code on unix]]></DOC>
