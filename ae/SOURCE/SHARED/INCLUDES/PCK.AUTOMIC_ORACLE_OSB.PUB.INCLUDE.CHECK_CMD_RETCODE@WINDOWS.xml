@@ -7,11 +7,12 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[IF %ERRORLEVEL% EQU 0 (
+<MSCRI><![CDATA[SET ERROR=%ERRORLEVEL%
+IF %ERROR% NEQ 0 (
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-set retcode=%ERRORLEVEL%
-@if NOT %ERRORLEVEL% == 0 goto :retcode
- )
+set retcode=%ERROR%
+goto :retcode
+)
 ]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
