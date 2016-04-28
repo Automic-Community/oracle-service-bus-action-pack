@@ -10,6 +10,9 @@ connFlag = False
 exitFlag = 1
 try:
 	try:
+		if len(sys.argv) < 7:
+			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <jarfilepath>')
+		
 		url = sys.argv[1]
 		username = sys.argv[2]
 		password = sys.argv[3]
@@ -76,7 +79,7 @@ try:
 				print '-- %s' % successEntry.toString()
 		exitFlag = 0
 	except:
-		print "ERROR : Unable to create the session. Possible error:", sys.exc_info()[1]
+		print "ERROR : Unable to import resource. Possible error:", sys.exc_info()[1]
 		print "Please check the input parameters"
 	
 finally:
