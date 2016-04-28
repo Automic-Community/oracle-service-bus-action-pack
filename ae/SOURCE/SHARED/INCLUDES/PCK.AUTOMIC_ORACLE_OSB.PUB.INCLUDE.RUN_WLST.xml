@@ -7,49 +7,40 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: SWITCH &$PLATFORM#
+<MSCRI><![CDATA[! Status messages
+: SWITCH &$PLATFORM#
 :        CASE "WINDOWS"
                   cd /d &UC4RB_OSB_HOME#\tools\configjar
-                  SET ERROR=%ERRORLEVEL%
-                  IF %ERROR% EQU 0 (
+: SET &UC4RB_LOGGING_ERROR# = "ERROR: Unable to change directory."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
                       call setenv.bat
-                  )
-                  SET ERROR=%ERRORLEVEL%
-                  IF %ERROR% EQU 0 (
+: SET &UC4RB_LOGGING_ERROR#="ERROR: Error in initializing OSB environment."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
+! set AGENT working directory
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
                      &UC4RB_RUN_CMD#
-                  ) ELSE (
-                      echo "ERROR: Unable to set OSB environment."
-                  )
-                  SET ERROR=%ERRORLEVEL%
-                  IF %ERROR% NEQ 0 (
-                     echo "ERROR: Unable to execute the command."
-                  )
+: SET &UC4RB_LOGGING_ERROR#="ERROR: Error in executing the command."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
 :        CASE "UNIX"
                   cd &UC4RB_OSB_HOME#/tools/configjar
-                  error=$?
-                  if [ "$error" -eq 0 ]
-                  then
+: SET &UC4RB_LOGGING_ERROR# = "ERROR: Unable to change directory."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
                      . ./setenv.sh
-                     error=$?
-                  else
-                     echo "Invalid OSB Home directory"
-                  fi
-                  if [ "$error" -eq 0 ]
-                  then
+: SET &UC4RB_LOGGING_ERROR#="ERROR: Error in initializing OSB environment."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
+! set AGENT working directory
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
                      &UC4RB_RUN_CMD#
-                     error=$?
-                  else
-                     echo "Unable to set OSB environment"
-                  fi
-                  if [ "$error" -ne 0 ]
-                  then
-                    echo "ERROR: Unable to execute the command."
-                  fi
+: SET &UC4RB_LOGGING_ERROR#="ERROR: Error in executing the command."
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
 :        OTHER
 : ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[This include does the following:
+	Sets the weblogic and OSB path along with the system properties required by OSB.
+	Runs the java command prepared to perform the necessary action.
+]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

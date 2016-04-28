@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX">
+<HEADER state="1">
+<Title>Check executed command return code</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[error=$?
+if [ "$error" -ne "0" ]
+then
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+  exit $error
+fi
+]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[Varify executed command return code on unix]]></DOC>
+</DOCU_Docu>
+</JOBI>
+</uc-export>
