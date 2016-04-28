@@ -10,34 +10,30 @@
 <DOC><![CDATA[About Automic's Oracle OSB Package
 ================================
 
-Oracle Service Bus manages different types of services, and provides traditional message brokering across heterogeneous IT environments. With this package we automate the management of session and resources through various actions. These actions could further be used in a complex workflow to achieve the given business goal.
+Oracle Service Bus manages different types of services, and provides traditional message brokering across heterogeneous IT environments. With this package we automate the management of session, project and resources through various actions. These actions could further be used in a complex workflow to achieve the given business goal.
 
 * Create/Activate/Destroy Session
 * Import resources
+* Customization
+* Delete Project
 
-=Supported OpenStack versions=
-Oracle Service Bus 11g
+=Supported OSB versions=
+Oracle Service Bus 11g and 12c
 
 =Limitations=
+(none)
 
 =Setup=
 
 * Oracle JDK 1.7 or higher must be installed on Agent OS and "java" must be set as executable on the same.
-
-* The Agent should be able to access the OpenStack URL(s) in order to make HTTP requests.
-
-* Modify the HTTP timeout parameters as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000 and "READ_TIMEOUT" is defined as 60000. Both are defined in milliseconds. 0 means no timeout.
-
-* Modify TOKEN_EXPIRY_THRESHOLD parameter if required as per requirement. by default it is defined as 5 minutes. 
-
+* The Agent should be setup on the target OSB instance.
+* Modify the connection timeout parameter as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000. Value is defined in milliseconds. 0 means no timeout.
 * You should have connection details to connect to Oracle OSB Services.
-
 
 =Variables=
 
 PCK.AUTOMIC_OPENSTACK.PRV.VARA.PACKAGE_PARAMETERS
-* HTTP timeout parameters can be configured in this variable. Values are defined in milliseconds. 0 means no timeout.
-* TOKEN_EXPIRY_THRESHOLD is defined in minutes to control when should our actions renew authentication token based on difference between token expiry and current AE time.
+* Connection timeout parameter can be configured in this variable. Value is defined in milliseconds. 0 means no timeout.
 
 =Actions=
 Following actions are supported for Oracle OSB
@@ -51,8 +47,9 @@ Following actions are supported for Oracle OSB
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DISCARD_SESSION
 * Action Description: This action is used to destroy a session in Oracle Service Bus by provided session name
 
-* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE 
-* Action Description: This action is used to import a resource into Oracle Service Bus]]></DOC>
+* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
+* Action Description: This action is used to import a resource into Oracle Service
+]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>

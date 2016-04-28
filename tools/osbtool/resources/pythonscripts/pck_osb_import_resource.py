@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 import wlstModule
 from com.bea.wli.sb.management.configuration import SessionManagementMBean
 from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
@@ -8,18 +6,29 @@ from java.io import FileInputStream
 
 import sys
 
-connectObj = False
+connFlag = False
+exitFlag = 1
 try:
 	try:
-
-		username = sys.argv[1]
-		password = sys.argv[2]
-		url = sys.argv[3]
-		sessionName = sys.argv[4]
-		jarfilepath = sys.argv[5]
-		print "================================================================================"
-		connectObj = connect(username, password, url)
-		connectObj = True
+		url = sys.argv[1]
+		username = sys.argv[2]
+		password = sys.argv[3]
+		connectionTimeout = sys.argv[4]
+		sessionName = sys.argv[5]
+		jarfilepath = sys.argv[6]
+		
+		#logging the inputs received
+		print "URL : [%s]" %url
+		print "Username : [%s]" %username
+		print "Connection Timeout : [%s]" %connectionTimeout
+		print "Session Name : [%s]" %sessionName
+		print "JAR File Path : [%s]" %jarfilepath
+		
+		# connect to OSB with URL endpoint, username, password, timeout
+		connect(username, password, url, timeout=connectionTimeout)
+		connFlag = True
+		
+		#to access the runtime MBean
 		domainRuntime()
 
 		# obtain session management mbean to create a session.
@@ -65,12 +74,12 @@ try:
 			print 'The following resources have been imported: '
 			for successEntry in result.getImported():
 				print '-- %s' % successEntry.toString()
+		exitFlag = 0
 	except:
-
-		print 'Unexpected error while importing resource : ', \
-			sys.exc_info()[0]
-		dumpStack()
-		raise
+		print "ERROR : Unable to create the session. Possible error:", sys.exc_info()[1]
+		print "Please check the input parameters"
+	
 finally:
-		if connectObj is True:
-			disconnect()			
+	if connFlag:
+		disconnect("true")
+	exit("y",exitFlag)
