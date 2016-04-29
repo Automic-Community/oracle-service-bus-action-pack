@@ -9,31 +9,35 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[! Status messages
 : SWITCH &$PLATFORM#
-:        CASE "WINDOWS"
-                  cd /d &UC4RB_OSB_HOME#\tools\configjar
-: SET &UC4RB_LOGGING_ERROR# = "Unable to change directory."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
-                      call setenv.bat
-: SET &UC4RB_LOGGING_ERROR#="Error in initializing OSB environment."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
+:      CASE "WINDOWS"
+           cd /d &UC4RB_OSB_HOME#\tools\configjar
+:          SET &UC4RB_LOGGING_ERROR# = "Invalid OSB home directory."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
+           SET MW_HOME=&UC4RB_OSB_HOME#\..
+           call setenv.bat
+           call %WL_HOME%\server\bin\setWLSEnv.cmd
+:          SET &UC4RB_LOGGING_ERROR#="Unable to initialize OSB execution environment."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
 ! set AGENT working directory
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
-                     &UC4RB_RUN_CMD#
-: SET &UC4RB_LOGGING_ERROR#="Error in executing the command."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
-:        CASE "UNIX"
-                  cd &UC4RB_OSB_HOME#/tools/configjar
-: SET &UC4RB_LOGGING_ERROR# = "Unable to change directory."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
-                     . ./setenv.sh
-: SET &UC4RB_LOGGING_ERROR#="Error in initializing OSB environment."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
+:          INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
+           &UC4RB_OSB_CMDEXEC#
+:          SET &UC4RB_LOGGING_ERROR#="ACTION EXECUTION HAS BEEN FAILED."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@WINDOWS
+:      CASE "UNIX"
+           cd &UC4RB_OSB_HOME#/tools/configjar
+:          SET &UC4RB_LOGGING_ERROR# = "Invalid OSB home directory."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
+           export MW_HOME=&UC4RB_OSB_HOME#/..
+           . ./setenv.sh
+           . $WL_HOME/server/bin/setWLSEnv.sh
+:          SET &UC4RB_LOGGING_ERROR#="Unable to initialize OSB execution environment."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
 ! set AGENT working directory
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
-                     &UC4RB_RUN_CMD#
-: SET &UC4RB_LOGGING_ERROR#="Error in executing the command."
-: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
-:        OTHER
+:          INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
+           &UC4RB_OSB_CMDEXEC#
+:          SET &UC4RB_LOGGING_ERROR#="ACTION EXECUTION HAS BEEN FAILED."
+:          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
+:      OTHER
 : ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">

@@ -1,31 +1,26 @@
 import wlstModule
-from com.bea.wli.sb.management.configuration import SessionManagementMBean
 from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
-from com.bea.wli.config import Ref
-from java.io import FileInputStream
-
-import sys
 
 connFlag = False
 exitFlag = 1
 try:
 	try:
 		if len(sys.argv) < 7:
-			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <jarfilepath> <passPhrase:optional>')
+			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <configurationfile> <passPhrase:optional>')
 		
 		url = sys.argv[1]
 		username = sys.argv[2]
 		password = sys.argv[3]
 		connectionTimeout = sys.argv[4]
 		sessionName = sys.argv[5]
-		jarfilepath = sys.argv[6]
+		configFile = sys.argv[6]
 		
 		#logging the inputs received
 		print "URL : [%s]" %url
 		print "Username : [%s]" %username
 		print "Connection Timeout : [%s]" %connectionTimeout
 		print "Session Name : [%s]" %sessionName
-		print "JAR File Path : [%s]" %jarfilepath
+		print "Configuration File Path : [%s]" %configFile
 		
 		# connect to OSB with URL endpoint, username, password, timeout
 		connect(username, password, url, timeout=connectionTimeout)
@@ -33,12 +28,6 @@ try:
 		
 		#to access the runtime MBean
 		domainRuntime()
-
-		# obtain session management mbean to create a session.
-		# This mbean instance can be used more than once to
-		# create/discard/commit many sessions
-
-		sessionMBean = findService(SessionManagementMBean.NAME, SessionManagementMBean.TYPE)
 
 		# obtain the ALSBConfigurationMBean instance that operates
 		# on the session that has just been created. Notice that
@@ -49,32 +38,30 @@ try:
 		# read a resource config file (example a jar) into bytes and uploading it
 
 		if alsbSession is None:
-			print 'Session %s not found ' % sessionName
-			raise 
-		print 'Reading imported jar file....'
+			raise ValueError('No session exists with name ' + sessionName)
+			
+		print 'Reading imported configuration file....'
 
-		fh = open(jarfilepath, 'rb')
+		fh = open(configFile, 'rb')
 		filebytes = fh.read()
 		fh.close()
 
-		# Uploading jar file
-
-		print 'Uploading Jar file.....'
+		print 'Uploading Configuration file.....'
 		alsbSession.uploadJarFile(filebytes)
-		print 'Jar Uploaded.......'
+		print 'Configuration File Uploaded.......'
 
 		print 'ALSB Project will now get imported'
 		jarInfo = alsbSession.getImportJarInfo()
 		importPlan = jarInfo.getDefaultImportPlan()
 		if len(sys.argv) == 8:
 			importPlan.setPassphrase(sys.argv[7])
+			print 'Passphrase has been set'
 		result = alsbSession.importUploaded(importPlan)
 
 		# Print out status and build a list of created references.
 
 		if result.getFailed().isEmpty() == false:
-			print 'One or more resources could not be imported properly'
-			raise
+			raise ValueError('One or more resources could not be imported properly')			
 		else:
 			print 'The following resources have been imported: '
 			for successEntry in result.getImported():

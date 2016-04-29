@@ -1,14 +1,12 @@
 import wlstModule
 from com.bea.wli.sb.management.configuration import SessionManagementMBean
-from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
-from com.bea.wli.config import Ref
 
 connFlag = False
 exitFlag = 1
 try:
 	try:
 		if len(sys.argv) < 6:
-			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <sessionDescription>')
+			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <sessionDescription-optional>')
 		
 		url = sys.argv[1]
 		username = sys.argv[2]
@@ -33,14 +31,13 @@ try:
 		# obtain session management mbean to activate a session.
 		sessionMBean = findService(SessionManagementMBean.NAME, SessionManagementMBean.TYPE)
 		
+		sessionDesc = None
 		# activate a session and provide a description to it.
 		if len(sys.argv) == 7:
 			print "Session Description : ", sys.argv[6]
-			sessionMBean.activateSession(sessionName, sys.argv[6])
-			print "Session with the name [%s] activated successfully" %sessionName
-		else:
-			sessionMBean.activateSession(sessionName, None)
-			print "Session with the name [%s] activated successfully" %sessionName
+			sessionDesc = sys.argv[6]
+		sessionMBean.activateSession(sessionName, sessionDesc)
+		print "Session with the name [%s] activated successfully" %sessionName
 		exitFlag = 0
 	except:
 		print "ERROR : Unable to activate the session. Possible error:", sys.exc_info()[1]

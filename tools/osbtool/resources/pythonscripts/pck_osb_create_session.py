@@ -1,7 +1,5 @@
 import wlstModule
 from com.bea.wli.sb.management.configuration import SessionManagementMBean
-from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
-from com.bea.wli.config import Ref
 
 connFlag = False
 exitFlag = 1

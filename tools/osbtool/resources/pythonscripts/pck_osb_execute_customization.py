@@ -1,10 +1,7 @@
 import wlstModule
-from com.bea.wli.sb.management.configuration import SessionManagementMBean
 from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
 from com.bea.wli.config.customization import Customization
 from java.io import FileInputStream
-
-import sys
 
 connFlag = False
 exitFlag = 1
