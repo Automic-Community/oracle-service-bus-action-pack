@@ -74,7 +74,6 @@
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
-<ELEMENT ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="ELEMENT" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
@@ -159,7 +158,6 @@
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
-<ELEMENT ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="ELEMENT" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
@@ -230,7 +228,6 @@
 <node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
-<ELEMENT ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="ELEMENT" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
@@ -362,19 +359,24 @@
 PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.EXECUTE_CUSTOMIZATION
 
 = General description =
- This action is used to apply specification customization changes on existing project.
+This action is used to execute the specified customization XML file. Customization files provide a way to modify your environment during deployment, from development to staging, from staging to production, or during design time.
 
 = Inputs =
-* Host name			:Specify name or IP address of OSB. Eg. localhost
-* Username 		        :Specify username which will be used for OSB host. Eg. weblogic
-* Password			:Specify password for giver username
-* Port				:Specify port number of the OSB host.Eg. 7001
-* Session name			:Specify name of the session you want to use for this operation. Eg mysession 
-* Customization File		:Specify customization file with full path.Eg ./home/oracle/tmp/ALSBCustomizationFile.xml
+* Host name			: Specify name or IP address of OSB. Eg. localhost
+* Username 		        : Specify username which will be used for OSB host. Eg. weblogic
+* Password			: Specify password for giver username
+* Port				: Specify port number of the OSB host.Eg. 7001
+* OSB Home			: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
+* Java options			: Specify the java options. E.g. -Xmx1024m -Xms500m
+* Sudo Password			: The password for the sudo command.
+* Options			: Run using sudo password (and sudo username if specfied).
+* Sudo Username			: The username to be used for the sudo command.
+* Session name			: Specify name of the session you want to use for this operation. Eg mysession 
+* Customization File		: Specify customization file with full path.Eg ./home/oracle/tmp/ALSBCustomizationFile.xml
 * Overwrite Agent		: Overwrites the default agent
 * Overwrite Login		: Overwrites the default login
 
-= Note =
+= Failure Conditions =
 This action will fail if the project does not exists or the customization file is not a valid xml.
 
 = Behaviour =

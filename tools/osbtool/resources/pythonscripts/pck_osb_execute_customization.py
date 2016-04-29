@@ -3,7 +3,7 @@ from com.bea.wli.sb.management.configuration import SessionManagementMBean
 from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
 from com.bea.wli.config import Ref
 from com.bea.wli.config.customization import Customization
-from java.io import FileInputStream
+from java.io import FileInputStream 
 
 import sys
 
@@ -14,7 +14,7 @@ try:
     try:
 
         if len(sys.argv) < 7:
-            raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <customFilePath>'
+            raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <customFile>'
                              )
 
         url = sys.argv[1]
@@ -41,38 +41,32 @@ try:
 
         domainRuntime()
 
-        # obtain session management mbean to create a session.
-
-        sessionMBean = findService(SessionManagementMBean.NAME,
-                                   SessionManagementMBean.TYPE)
-
         # obtain the ALSBConfigurationMBean instance that operates
         # on the session that has just been created. Notice that
         # the name of the mbean contains the session name.
 
-        alsbConfigurationMBean = \
-            findService(ALSBConfigurationMBean.NAME + '.'
+        alsbConfigurationMBean = findService(ALSBConfigurationMBean.NAME + '.'
                         + sessionName, ALSBConfigurationMBean.TYPE)
 
         # read a resource config file (example a jar) into bytes and uploading it
 
         if alsbConfigurationMBean is None:
-            print 'Session %s not found ' % sessionName
-            raise
+            raise ValueError('No session exists with name '
+                             + sessionName)
 
         # customizing
 
         print 'Executing customization '
 
-        if customFile != None:
-            print 'Loading customization File', customFile
-            iStream = FileInputStream(customFile)
-            customizationList = Customization.fromXML(iStream)
-            alsbConfigurationMBean.customize(customizationList)
-            print 'Execution of customization done successfully'
+        print 'Loading customization File', customFile
+        iStream = FileInputStream(customFile)
+        customizationList = Customization.fromXML(iStream)
+        alsbConfigurationMBean.customize(customizationList)
+        print 'Execution of customization done successfully'
         exitFlag = 0
     except:
-        print 'ERROR : Unable to create the session. Possible error:', \
+
+        print 'ERROR : Unable to execute customization. Possible error:', \
             sys.exc_info()[1]
         print 'Please check the input parameters'
 finally:
