@@ -27,7 +27,7 @@
            cd &UC4RB_OSB_HOME#/tools/configjar
 :          SET &UC4RB_LOGGING_ERROR# = "Invalid OSB home directory."
 :          INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.CHECK_CMD_RETCODE@UNIX
-           MW_HOME=&UC4RB_OSB_HOME#/..
+           export MW_HOME=&UC4RB_OSB_HOME#/..
            . ./setenv.sh
            . $WL_HOME/server/bin/setWLSEnv.sh
 :          SET &UC4RB_LOGGING_ERROR#="Unable to initialize OSB execution environment."
