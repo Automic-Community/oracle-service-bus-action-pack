@@ -7,7 +7,7 @@ connFlag = False
 exitFlag = 1
 try:
 	try:
-		if len(sys.argv) < 7:
+		if len(sys.argv) < 6:
 			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <sessionDescription>')
 		
 		url = sys.argv[1]
@@ -15,14 +15,13 @@ try:
 		password = sys.argv[3]
 		connectionTimeout = sys.argv[4]
 		sessionName = sys.argv[5]
-		sessionDescription = sys.argv[6]
 		
 		#logging the inputs received
 		print "URL : [%s]" %url
 		print "Username : [%s]" %username
 		print "Connection Timeout : [%s]" %connectionTimeout
 		print "Session Name : [%s]" %sessionName
-		print "Session Description : [%s]" %sessionDescription
+		
 		
 		# connect to OSB with URL endpoint, username, password, timeout
 		connect(username, password, url, timeout=connectionTimeout)
@@ -35,11 +34,12 @@ try:
 		sessionMBean = findService(SessionManagementMBean.NAME, SessionManagementMBean.TYPE)
 		
 		# activate a session and provide a description to it.
-		if not sessionDescription:
-			sessionMBean.activateSession(sessionName, None)
+		if len(sys.argv) == 7:
+			print "Session Description : ", sys.argv[6]
+			sessionMBean.activateSession(sessionName, sys.argv[6])
 			print "Session with the name [%s] activated successfully" %sessionName
 		else:
-			sessionMBean.activateSession(sessionName, sessionDescription)
+			sessionMBean.activateSession(sessionName, None)
 			print "Session with the name [%s] activated successfully" %sessionName
 		exitFlag = 0
 	except:

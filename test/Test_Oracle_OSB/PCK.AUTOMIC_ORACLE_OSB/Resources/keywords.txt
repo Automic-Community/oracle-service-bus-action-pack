@@ -108,7 +108,8 @@ Set Home
     ...    &UC4RB_OSB_JAVA_OPTIONS#    ${JavaOptions}
 
 Connect to OSB
-    Action Set    &UC4RB_OSB_PROTOCOL#    ${Protocol}
+    Run Keyword If    '${Protocol}' == 'Invalid'    Action Set    &UC4RB_OSB_PROTOCOL#    ${Generated_Name}    ELSE    Action Set
+    ...    &UC4RB_OSB_PROTOCOL#    ${Protocol}
     Run Keyword If    '${Hostname}' == 'Invalid'    Action Set    &UC4RB_OSB_HOST_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OSB_HOST_NAME#    ${Hostname}
     Run Keyword If    '${Username}' == 'Invalid'    Action Set    &UC4RB_OSB_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set

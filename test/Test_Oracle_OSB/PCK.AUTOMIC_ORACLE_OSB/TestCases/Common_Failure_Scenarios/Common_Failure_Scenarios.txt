@@ -19,9 +19,6 @@ Assertion with Invalid OSB Home
 Assertion with Invalid Java Options
                       NOK       ${Sudo_Password}    None       ${Sudo_Username}    ${OSB_Home}    Invalid            ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
-Assertion with Invalid Protocol
-                      NOK       ${EMPTY}            None       ${EMPTY}            ${OSB_Home}    ${EMPTY}           https              ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
-
 Assertion with Non-Existing Hostname
                       NOK       ${EMPTY}            None       ${EMPTY}            ${OSB_Home}    ${EMPTY}           ${OSB_Protocol}    Invalid            ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
@@ -45,6 +42,9 @@ Assert Username As a Mandatory Field
 
 Assert Password As a Mandatory Field
                       OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${OSB_Home}    ${Java_Options}    ${OSB_Protocol}    ${OSB_Hostname}    ${OSB_Username}    ${EMPTY}           ${OSB_Port}    ${Session_Name}
+
+Assertion with Invalid Protocol
+                      OTHER     ${Sudo_Password}    None       ${Sudo_Username}    ${OSB_Home}    ${Java_Options}    Invalid            ${OSB_Hostname}    ${OSB_Username}    ${OSB_Password}    ${OSB_Port}    ${Session_Name}
 
 *** Keywords ***
 Startup

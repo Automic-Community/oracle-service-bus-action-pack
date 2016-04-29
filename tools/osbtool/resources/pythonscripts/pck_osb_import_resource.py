@@ -11,7 +11,7 @@ exitFlag = 1
 try:
 	try:
 		if len(sys.argv) < 7:
-			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <jarfilepath>')
+			raise ValueError('Usage: java weblogic.WLST pythonscript.py <url> <username> <password> <timeout> <sessionName> <jarfilepath> <passPhrase:optional>')
 		
 		url = sys.argv[1]
 		username = sys.argv[2]
@@ -66,6 +66,8 @@ try:
 		print 'ALSB Project will now get imported'
 		jarInfo = alsbSession.getImportJarInfo()
 		importPlan = jarInfo.getDefaultImportPlan()
+		if len(sys.argv) == 8:
+			importPlan.setPassphrase(sys.argv[7])
 		result = alsbSession.importUploaded(importPlan)
 
 		# Print out status and build a list of created references.

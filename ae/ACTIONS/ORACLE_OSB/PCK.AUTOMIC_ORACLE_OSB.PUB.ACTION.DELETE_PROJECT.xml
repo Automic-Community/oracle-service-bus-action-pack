@@ -362,11 +362,10 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DELETE_PROJECT
 This action is used to delete a Project and all its sub folders and resources in Oracle Service Bus.
 
 = Failure Conditions =
-* The provided session does not exist.
-* The provided Project does not exist. 
+(none)
 
 = Inputs =
-* Protocol		: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Protocol		: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
 * Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
 * Username 		: Specify username which will be used for OSB host.
 * Password		: Specify password for given username.

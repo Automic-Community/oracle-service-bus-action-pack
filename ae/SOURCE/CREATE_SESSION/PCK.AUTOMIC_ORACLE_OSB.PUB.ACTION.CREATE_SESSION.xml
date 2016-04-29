@@ -359,7 +359,7 @@ This action is used to create a session in Oracle Service Bus with the name prov
 (none)
 
 = Inputs =
-* Protocol		: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Protocol		: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
 * Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
 * Username 		: Specify username which will be used for OSB host.
 * Password		: Specify password for given username.
