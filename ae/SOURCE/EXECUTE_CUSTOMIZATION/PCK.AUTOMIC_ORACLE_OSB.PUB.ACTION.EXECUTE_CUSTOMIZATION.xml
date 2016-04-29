@@ -362,6 +362,7 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.EXECUTE_CUSTOMIZATION
 This action is used to execute the specified customization XML file. Customization files provide a way to modify your environment during deployment, from development to staging, from staging to production, or during design time.
 
 = Inputs =
+* Protocol			: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
 * Host name			: Specify name or IP address of OSB. Eg. localhost
 * Username 		        : Specify username which will be used for OSB host. Eg. weblogic
 * Password			: Specify password for given username

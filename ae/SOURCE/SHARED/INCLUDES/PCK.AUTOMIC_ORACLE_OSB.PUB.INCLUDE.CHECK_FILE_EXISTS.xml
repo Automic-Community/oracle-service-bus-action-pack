@@ -51,7 +51,7 @@ error=0
 :ENDSWITCH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[Checks if the specified file exists or not.]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

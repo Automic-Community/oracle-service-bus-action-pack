@@ -365,7 +365,7 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
  This action is used to import the resource into the OSB. If the resource is already present then it will update it otherwise it will create it.
 
 = Inputs =
-* Protocol			: Specify protocol you want to use for connection. Possible values are t3, http, https.
+* Protocol			: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
 * Host name			: Specify name or IP address of OSB. E.g. 127.0.0.1
 * Username 			: Specify username which will be used for OSB host.
 * Password			: Specify password for given username.

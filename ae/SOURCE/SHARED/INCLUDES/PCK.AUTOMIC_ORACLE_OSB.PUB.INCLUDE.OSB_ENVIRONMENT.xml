@@ -20,7 +20,7 @@
 :INC PCK.ITPA_SHARED.PUB.INCLUDE.ATTACH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC><![CDATA[It initializes the ?error? variable for both windows and unix.]]></DOC>
+<DOC><![CDATA[It initializes the 'error' variable for both windows and unix and attach the itpa tool]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>
