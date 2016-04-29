@@ -14,7 +14,10 @@
 :CASE "UNIX"
  error=0
 :OTHER
-:ENDSWITCH]]></MSCRI>
+:ENDSWITCH
+
+!Importing itpa tools
+:INC PCK.ITPA_SHARED.PUB.INCLUDE.ATTACH]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[It initializes the ?error? variable for both windows and unix.]]></DOC>

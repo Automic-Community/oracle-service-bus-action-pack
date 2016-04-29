@@ -32,7 +32,7 @@ Oracle Service Bus 11g and 12c
 
 =Variables=
 
-PCK.AUTOMIC_OPENSTACK.PRV.VARA.PACKAGE_PARAMETERS
+PCK.AUTOMIC_ORACLE_OSB.PRV.VARA.PACKAGE_PARAMETERS
 * Connection timeout parameter can be configured in this variable. Value is defined in milliseconds. 0 means no timeout.
 
 =Actions=

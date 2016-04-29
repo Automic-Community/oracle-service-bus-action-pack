@@ -75,6 +75,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
+<UC4RB_OSB_PASS_PHRASEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASS_PHRASE#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -159,6 +160,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
+<UC4RB_OSB_PASS_PHRASEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASS_PHRASE#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -229,6 +231,7 @@
 <PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE">
 <UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
+<UC4RB_OSB_PASS_PHRASEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_PASS_PHRASE#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 <UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.IMPORT_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -370,7 +373,7 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
 * OSB Home			: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
 * Java options			: Specify the java options. E.g. -Xmx1024m -Xms500m
 * Session name			: Specify name of the session. Eg mysession 
-* File to import		: Specify full path and name of the file to import as a resource. C:/MyFiles/sbconfig.jar
+* File to import		: Specify full path and name of the file to import as a resource. Eg. C:\MyFiles\App.jar
 * Sudo Password			: The password for the sudo command.
 * Options			: Run using sudo password (and sudo username if specfied).
 * Sudo Username			: The username to be used for the sudo command.
