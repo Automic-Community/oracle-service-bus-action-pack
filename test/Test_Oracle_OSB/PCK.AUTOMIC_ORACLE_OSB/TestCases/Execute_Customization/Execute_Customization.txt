@@ -25,6 +25,9 @@ Assertion with Non-Existing Path to Customization File
 Assertion with Invalid type of Customization File
                       NOK       ${Session_Name}    ${Invalid_Customization_File}
 
+Assertion when Valid Path is Provided but File doesn't Exists
+                      NOK       ${Session_Name}    ${EXECDIR}
+
 Assert Session Name As a Mandatory Field
                       OTHER     ${EMPTY}           ${Customization_File}
 
