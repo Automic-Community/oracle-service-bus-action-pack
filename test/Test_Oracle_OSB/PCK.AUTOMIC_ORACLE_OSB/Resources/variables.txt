@@ -23,3 +23,5 @@ ${Invalid_Resource_File}    ${EXECDIR}\\invalid.jar
 #----Execute Customization------------------------------------------------------------------------------------------
 ${Customization_File}    ${EXECDIR}\\customizationfile.xml
 ${Invalid_Customization_File}    ${EXECDIR}\\invalidcustomizationfile.xml
+#-----Delete Project----------------------------------------------------------------------------------------------
+${Project_Name}    Weight Converter
