@@ -374,6 +374,7 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
 * Java options			: Specify the java options. E.g. -Xmx1024m -Xms500m
 * Session name			: Specify name of the session. Eg mysession 
 * File to import		: Specify full path and name of the file to import as a resource. Eg. C:\MyFiles\App.jar
+* Pass phrase			: Specify the pass phrase.
 * Sudo Password			: The password for the sudo command.
 * Options			: Run using sudo password (and sudo username if specfied).
 * Sudo Username			: The username to be used for the sudo command.
