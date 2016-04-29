@@ -1,9 +1,8 @@
 import wlstModule
 from com.bea.wli.sb.management.configuration import SessionManagementMBean
 from com.bea.wli.sb.management.configuration import ALSBConfigurationMBean
-from com.bea.wli.config import Ref
 from com.bea.wli.config.customization import Customization
-from java.io import FileInputStream 
+from java.io import FileInputStream
 
 import sys
 
@@ -41,14 +40,9 @@ try:
 
         domainRuntime()
 
-        # obtain the ALSBConfigurationMBean instance that operates
-        # on the session that has just been created. Notice that
-        # the name of the mbean contains the session name.
-
-        alsbConfigurationMBean = findService(ALSBConfigurationMBean.NAME + '.'
+        alsbConfigurationMBean = \
+            findService(ALSBConfigurationMBean.NAME + '.'
                         + sessionName, ALSBConfigurationMBean.TYPE)
-
-        # read a resource config file (example a jar) into bytes and uploading it
 
         if alsbConfigurationMBean is None:
             raise ValueError('No session exists with name '
