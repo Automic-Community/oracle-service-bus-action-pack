@@ -358,7 +358,7 @@
 PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DISCARD_SESSION
 
 = General description =
- This action is used to destroy a session in Oracle Service Bus by provided session name. 
+ This action is used to discard a session in Oracle Service Bus by provided session name. 
 
 = Failure Conditions =
 (none)
@@ -371,7 +371,7 @@ PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DISCARD_SESSION
 * Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
 * OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
 * Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
-* Session name		: Specify name of the session. E.g. mySession
+* Session name		: Specify name of the session to discard. E.g. mySession
 * Sudo Password		: The password for the sudo command.
 * Options		: Run using sudo password (and sudo username if specfied).
 * Sudo Username		: The username to be used for the sudo command.

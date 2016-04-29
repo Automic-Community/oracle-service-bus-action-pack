@@ -15,8 +15,8 @@ Oracle Service Bus manages different types of services, and provides traditional
 * Create/Activate/Destroy Session
 * Import resources
 
-=Supported OpenStack versions=
-Oracle Service Bus 11g
+=Supported Oracle OSB versions=
+Oracle Service Bus 11g and 12c
 
 =Limitations=
 (none)
