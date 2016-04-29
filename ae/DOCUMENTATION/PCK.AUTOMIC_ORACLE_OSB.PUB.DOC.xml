@@ -10,15 +10,13 @@
 <DOC><![CDATA[About Automic's Oracle OSB Package
 ================================
 
-Oracle Service Bus manages different types of services, and provides traditional message brokering across heterogeneous IT environments. With this package we automate the management of session, project and resources through various actions. These actions could further be used in a complex workflow to achieve the given business goal.
+Oracle Service Bus manages different types of services, and provides traditional message brokering across heterogeneous IT environments. With this package we automate the management of session and resources through various actions. These actions could further be used in a complex workflow to achieve the given business goal.
 
 * Create/Activate/Destroy Session
 * Import resources
-* Customization
-* Delete Project
 
-=Supported OSB versions=
-Oracle Service Bus 11g and 12c
+=Supported OpenStack versions=
+Oracle Service Bus 11g
 
 =Limitations=
 (none)
@@ -26,12 +24,17 @@ Oracle Service Bus 11g and 12c
 =Setup=
 
 * Oracle JDK 1.7 or higher must be installed on Agent OS and "java" must be set as executable on the same.
-* The Agent should be setup on the target OSB instance.
-* Modify the connection timeout parameter as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000. Value is defined in milliseconds. 0 means no timeout.
+
+* The Agent should be able to access the OpenStack URL(s) in order to make HTTP requests.
+
+* Modify the HTTP timeout parameters as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000 and "READ_TIMEOUT" is defined as 60000. Both are defined in milliseconds. 0 means no timeout.
+
+* Modify TOKEN_EXPIRY_THRESHOLD parameter if required as per requirement. by default it is defined as 5 minutes. 
+
 * You should have connection details to connect to Oracle OSB Services.
 
-=Variables=
 
+=Variables=
 PCK.AUTOMIC_ORACLE_OSB.PRV.VARA.PACKAGE_PARAMETERS
 * Connection timeout parameter can be configured in this variable. Value is defined in milliseconds. 0 means no timeout.
 
@@ -49,6 +52,9 @@ Following actions are supported for Oracle OSB
 
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.IMPORT_RESOURCE
 * Action Description: This action is used to import a resource into Oracle Service Bus
+
+* Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.EXECUTE_CUSTOMIZATION
+* Action Description: This action is used to apply specification customization changes on existing project.
 
 * Action Name: PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.DELETE_PROJECT
 * Action Description: This action is used to delete a Project in Oracle Service Bus]]></DOC>

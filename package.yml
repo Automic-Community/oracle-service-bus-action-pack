@@ -24,6 +24,10 @@ binaries:
         type: TEXT
         path: tools/osbtool/resources/pythonscripts/pck_osb_import_resource.py
         version: 1.0.0
+      - name: EXECUTE_CUSTOMIZATION
+        type: TEXT
+        path: tools/osbtool/resources/pythonscripts/pck_osb_execute_customization.py
+        version: 1.0.0
       - name: DELETE_PROJECT
         type: TEXT
         path: tools/osbtool/resources/pythonscripts/pck_osb_delete_project.py
