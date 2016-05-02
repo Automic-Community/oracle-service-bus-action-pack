@@ -123,6 +123,8 @@
 !------------------------------------ check if given file exists ------------------------------------------------------------------------------------------------
 : SET &UC4RB_CHECKME# = &UC4RB_OSB_FILE_PATH#
 : INC PCK.AUTOMIC_FILESYSTEM.PRV.INCLUDE.CHECK_FILE_EXISTS
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_OSB_FILE_PATH#
+: INC PCK.AUTOMIC_ORACLE_OSB.PUB.INCLUDE.ESCAPE_ARG_VALUE
 : SET &UC4RB_OSB_CUSTOM_FILE# = &UC4RB_ESCAPED_STRING#
 
 ! -----------------------------------Preparing the create session command to run python script-------------------------------------------------------------------
