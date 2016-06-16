@@ -1,7 +1,8 @@
 # Package Build Configuration 
 name: PCK.AUTOMIC_ORACLE_OSB
 
-source: ae
+source: ae/content
+appdata: ae/appdata
   
 # binary object resource mapping will be defined here
 binaries:

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.CREATE_SESSION">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.EXECUTE_CUSTOMIZATION">
 <XHEADER state="1">
-<Title>Create Session</Title>
+<Title>Execute customization</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -22,7 +22,7 @@
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
 <AutoDeactErrorFree>1</AutoDeactErrorFree>
-<DeactWhen>ANY_OK</DeactWhen>
+<DeactWhen/>
 <AutoDeactAlways>0</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
 <ActAtRun>1</ActAtRun>
@@ -71,10 +71,11 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION"/>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
+<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -90,8 +91,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -105,7 +106,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CREATE_SESSION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_ORACLE_OSB.PRV.JOB.CREATE_SESSION@GENERIC" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="EXECUTE_CUSTOMIZATION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_ORACLE_OSB.PRV.JOB.EXECUTE_CUSTOMIZATION@GENERIC" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="1" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -154,10 +155,11 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION"/>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
+<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -173,8 +175,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -223,10 +225,11 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION">
-<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION"/>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION">
+<UC4RB_OSB_FILE_PATHs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_FILE_PATH#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
+<UC4RB_OSB_SESSION_NAMEs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OSB_SESSION_NAME#" promptsetname="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -242,8 +245,8 @@
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
 <PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">
-<AGENTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
-<LOGINs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT"/>
+<AGENTs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="AGENT#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 ReadFromTable="OPUD" altview="1" haslist="0" msginsert="" msgnr="" promptname="LOGIN#" promptsetname="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT">&amp;LOGIN#</LOGINs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -312,9 +315,9 @@
 <PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PUB.PROMPTSET.COMMON_OPTIONS" prptmode="1"/>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.CREATE_SESSION" prptmode="1"/>
+<node content="1" id="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_ORACLE_OSB.PRV.PROMPTSET.EXECUTE_CUSTOMIZATION" prptmode="1"/>
 </PROMPTSET>
 </node>
 <node content="1" id="PCK.ITPA_SHARED.PUB.PROMPTSET.SUDO" name="PCK.ITPA_SHARED.PUB.PROMPTSET.SUDO" parent="PRPTS" type="PROMPTSET">
@@ -324,7 +327,10 @@
 </node>
 <node content="1" id="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" parent="PRPTS" type="PROMPTSET">
 <PROMPTSET name="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" ontop="1">
-<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1"/>
+<PRPTBOX promptset="PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT" prptmode="1">
+<AGENTs.00 altview="1" haslist="0">&amp;AGENT#</AGENTs.00>
+<LOGINs.00 altview="1" haslist="0">&amp;LOGIN#</LOGINs.00>
+</PRPTBOX>
 </PROMPTSET>
 </node>
 </dyntree>
@@ -350,34 +356,35 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.CREATE_SESSION
+PCK.AUTOMIC_ORACLE_OSB.PUB.ACTION.EXECUTE_CUSTOMIZATION
 
 = General description =
-This action is used to create a session in Oracle Service Bus with the name provided by the user.
+This action is used to execute the specified customization XML file. Customization files provide a way to modify your environment during deployment, from development to staging, from staging to production, or during design time.
 
 = Failure Conditions =
 (none)
 
 = Inputs =
-* Protocol		: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
-* Host name		: Specify name or IP address of OSB. E.g. 127.0.0.1
-* Username 		: Specify username which will be used for OSB host.
-* Password		: Specify password for given username.
-* Port			: Specify port number of the OSB host. Default port is 7001. Eg. 5678
-* OSB Home		: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
-* Java options		: Specify the java options. E.g. -Xmx1024m -Xms500m
-* Session name		: Specify name of the session you want to create. E.g. mySession
-* Sudo Password		: The password for the sudo command.
-* Options		: Run using sudo password (and sudo username if specfied).
-* Sudo Username		: The username to be used for the sudo command.
-* Overwrite Agent	: Overwrites the default agent
-* Overwrite Login	: Overwrites the default login
+* Protocol			: Specify protocol you want to use for connection. Possible values are t3, t3s, http, https, iiop, iiops.
+* Host name			: Specify name or IP address of OSB. Eg. localhost
+* Username 		        : Specify username which will be used for OSB host. Eg. weblogic
+* Password			: Specify password for given username
+* Port				: Specify port number of the OSB host.Eg. 7001
+* OSB Home			: Specify the Oracle Service Bus home directory. E.g. /oracle/fmwhome/Oracle_OSB1
+* Java options			: Specify the java options. E.g. -Xmx1024m -Xms500m
+* Sudo Password			: The password for the sudo command.
+* Options			: Run using sudo password (and sudo username if specfied).
+* Sudo Username			: The username to be used for the sudo command.
+* Session name			: Specify name of the session you want to use for this operation. Eg mysession 
+* Customization File		: Specify customization file with full path.Eg ./home/oracle/tmp/ALSBCustomizationFile.xml
+* Overwrite Agent		: Overwrites the default agent
+* Overwrite Login		: Overwrites the default login
 
-= Behavior =
-(none)
+= Behaviour =
+(see general description)
 
 = Outputs =
-* Return code is 0 in case of success.
+* Return code is 0 in case of success
 * Return code is 1 in case of failure.
 
 = Rollback =
@@ -387,7 +394,8 @@ This action is used to create a session in Oracle Service Bus with the name prov
 AE logs will be displayed in the AE report.
 
 = Example =
-(none)]]></DOC>
+(none)
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
