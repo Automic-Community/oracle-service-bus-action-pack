@@ -1,0 +1,57 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        activate_session
+Default Tags
+Test Template     Activate Session Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    SessionName        SessionDescription
+Activate Session With Valid Inputs
+                      [Tags]    main_scenarios
+                      OK        ${Session_Name}    ${Session_Desc}
+
+Assert Session Description as Optional Field
+                      [Tags]    main_scenarios
+                      OK        ${Session_Name}    ${EMPTY}
+
+Assertion With Non-Existing Session Name
+                      [Tags]    main_scenarios
+                      NOK       Invalid            ${Session_Desc}
+
+Assert Session Name As a Mandatory Field
+                      [Tags]    main_scenarios
+                      OTHER     ${EMPTY}           ${Session_Desc}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "ACTIVATE SESSION"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Activate Session Template
+    [Arguments]    ${OK_NOK}    ${SessionName}    ${SessionDesc}
+    [Documentation]    This test activate the already existing session on OSB.
+    ...    -Precondition: To run these test cases OSB credentials and existing session name should be known to user. To run the test cases on UNIX change the values of OSB credentials and other fields accordingly.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK, NOK or OTHER.
+    ...    -${SessionName}: This field specifies name of the session you want to activate.
+    ...    -${SessionDesc}: This field specifies description to this session.
+    Generate String
+    Action Create    ${_ACTIVATE_SESSION_ACTION}
+    Common Inputs
+    Run Keyword If    '${SessionName}' == 'Invalid'    Action Set    &UC4RB_OSB_SESSION_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OSB_SESSION_NAME#    ${SessionName}
+    Action Set    &UC4RB_OSB_SESSION_DESC#    ${SessionDesc}
+    Set Overwrite Agent
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure    ELSE
+    ...    Assert Mandatory
+
+Teardown
+    Log    *******End Test "ACTIVATE SESSION"*******
